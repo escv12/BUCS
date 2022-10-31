@@ -1,0 +1,142 @@
+@import "reset.css";
+
+.header{
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    padding-top: 20px;
+    border: 1px solid #888;
+    margin-top: 120px;
+    margin-bottom: 50px;
+}
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #888;
+    padding: 40px;
+    width: 400px;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.id_pw, .user_info{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.input_form{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    height: 40px;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+}
+
+.input_form > input, .input_form > span{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.input_form:focus-within{
+    border: 1px solid #44AFD6;
+    color: black;
+}
+
+#id_form{
+    border-radius: 6px 6px 0 0;
+}
+
+#pw_form{
+    border-radius: 0 0 6px 6px;
+}
+
+input{
+    border: none;
+    height: 95%;
+    width: 95%;
+    color: #888;
+    font-size: 14px;
+}
+
+input:focus{
+    outline: none;
+}
+
+.login_btn, .find_id_btn, .find_pw_btn, .sign_up_btn{
+    background-color: #48BAE4;
+    border: 1px solid #44AFD6;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 90%;
+    border-radius: 6px;
+    height: 60px;
+
+}
+
+.login_btn:hover, .find_id_btn:hover, .find_pw_btn:hover, .sign_up_btn:hover{
+    cursor: pointer;
+}
+
+.find_wrap li {
+    position: relative;
+    display: inline-block;
+}
+
+.find_wrap li a{
+    color: #888;
+}
+
+.find_wrap li+li{
+    padding-left: 28px;
+}
+
+.find_wrap li+li::before{
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 12px;
+    width: 1px;
+    height: 12px;
+    border-radius: 0.5px;
+    background-color: #888;
+}
+
+.logo{
+    color: #888;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.input_text{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.material-symbols-outlined {
+    color: #dadada;
+    user-select: none;
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 200,
+  'opsz' 40
+}
