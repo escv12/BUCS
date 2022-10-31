@@ -1,0 +1,176 @@
+@import "reset.css";
+
+.quiz_board_wrap{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.quiz_board {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #888;
+    padding: 40px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.quiz_board_top{
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.quiz_board_top > div{
+    display: table-cell;
+    border: 1px solid black;
+    height: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+
+.quiz_board_top > div:hover{
+    cursor: pointer;
+}
+
+#quiz, #answer{
+    width: 300px;
+}
+
+
+.quiz_board_top #quiz:hover{
+    background-color: #48BAE4;
+    color: white;
+}
+
+.quiz_board_top #answer:hover{
+    background-color: #48BAE4;
+    color: white;
+}
+
+.quiz_board_mid{
+    display: block;
+}
+
+
+.search_wrap{
+    display: inline-table;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+.search_wrap > div{
+    display: table-cell;
+}
+
+.search_btn{
+    border: 1px solid #48BAE4;
+    background-color: #48BAE4;
+    color: white;
+    font-size: 16px;
+    width: 100px;
+    height: 30px;
+    margin-left: 20px;
+}
+
+.search_btn:hover{
+    cursor: pointer;
+}
+
+.search_method{
+    width: 100px;
+    height: 32px;
+    margin-right: 20px;
+    border: 1px solid black;
+}
+
+.search_method:focus{
+    outline: none;
+}
+
+.search{
+    text-align: left;
+    border: 1px solid black;
+    height: 26px;
+    width: 60%;
+}
+
+.search > input{
+    margin-left: 10px;
+    border: none;
+    height: 80%;
+    color: black;
+    width: 95%;
+}
+
+.search > input:focus{
+    outline: none;
+}
+
+
+#change_page{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    text-decoration: none;
+}
+
+#change_page > li{
+    display: inline;
+    color: #888;
+}
+
+#change_page li+li{
+    padding-left: 20px;
+}
+
+.quiz_board_table{
+    width: 100%;
+    text-align: left;
+    line-height: 1;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    margin : 20px 10px;
+}
+
+#number{
+    width: 50px;
+}
+
+#date{
+    width: 100px;
+}
+
+#count{
+    width: 80px;
+}
+
+.quiz_board_table > thead > tr > th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.quiz_board_table > tbody > tr > td {
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#quiz_contents tr:nth-child(odd){
+    background-color: #eee;
+}
+
