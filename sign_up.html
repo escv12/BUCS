@@ -22,11 +22,9 @@
             
             if(email == "" || nickname == "" || id == "" || pass == "" || pass_confirm == ""){
                 warning.innerText = "모든 필드를 채웠는지 확인해주세요";
-                console.log("A");
                 return;
             }else if(pass != pass_confirm){
                 warning.innerText = "비밀번호가 일치하지 않습니다";
-                console.log("B");
                 return;
             }
         }
