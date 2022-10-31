@@ -1,0 +1,87 @@
+@import "reset.css";
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+
+.content_header{
+    text-align: left;
+    
+}
+
+#date, #title{
+    border: 1px solid black;
+    width: 90%;
+    height: 30px;
+    line-height: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content{
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    margin-top: 10px;
+    width: 90%;
+    height: 100px;
+
+}
+
+.reply_wrap{
+    width: 90%;
+    text-align: left;
+    line-height: 1;
+    margin : 20px 10px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alert{
+    text-align: center;
+}
+
+.login_link{
+    color: #44AFD6;
+}
+.login_link:visited{
+    color: #44AFD6;
+}
+
+.reply_wrap > tbody > tr > td {
+    padding: 10px;
+    vertical-align: top;
+    border: 1px solid black;
+    
+}
+
+.content_reply tr:nth-child(odd){
+    background-color: #888;
+}
+
+
+.index{
+    background-color: #44AFD6;
+    color: white;
+    float: right;
+    height: 40px;
+    font-size: 16px;
+    border: 1px solid black;
+    width: 120px;
+}
+
+.button_wrap{
+    width: 90%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,24 +8,38 @@
     <title>find_id</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
-    $(document).ready(function() {
-        $("#header").load("login_header.html");
-        $("#footer").load("login_footer.html");
-    });
+        $(document).ready(function () {
+            $("#header").load("login_header.html");
+            $("#footer").load("login_footer.html");
+        });
+
+        function find_id() {
+            var email = document.getElementById("find_id_email").value;
+            var warning = document.getElementById("warning");
+
+            if (email == "") {
+                warning.innerText = "이메일을 입력해주세요";
+                return;
+            }
+        }
+
     </script>
     <link rel="stylesheet" href="css/loginPage.css">
+
 <body>
     <div class="container">
         <div id="header"></div>
         <div class="form">
             <div class="id_pw">
-                <div class="input_form" id="email_form"><input class="find_id_email" placeholder="이메일를 입력하세요"></div>
+                <div class="input_form" id="email_form"><input id="find_id_email" type="email" placeholder="이메일를 입력하세요"></div>
+                <p class="warning" id="warning"></p>
             </div>
             <button class="find_id_btn" type="submit">다음</button>
         </div>
         <div id="footer"></div>
     </div>
-    
-    
+
+
 </body>
+
 </html>

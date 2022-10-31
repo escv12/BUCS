@@ -49,11 +49,6 @@
 
 }
 
-
-.board_table{
-    width: 100%;
-}
-
 .board_search_wrap{
     display: table;
     float: right;
@@ -96,10 +91,6 @@
 #board_search_btn:hover{
     cursor: pointer;
 }
-
-
-
-
 
 .board_table{
     width: 100%;

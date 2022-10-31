@@ -140,3 +140,12 @@ input:focus{
   'GRAD' 200,
   'opsz' 40
 }
+
+
+.warning{
+    color: #ff003e;
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+}
