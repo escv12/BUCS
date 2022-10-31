@@ -15,11 +15,13 @@
         function login(){
             var user_id = document.getElementById("id").value;
             var user_pass = document.getElementById("pass").value;
+            var warning = document.getElementById("warning");
             if(user_id == ""){
-
+                warning.innerText = "아이디를 입력해주세요";
                 return;
 
             } else if(user_pass == ""){
+                warning.innerText = "비밀번호를 입력해주세요";
                 return;
             }
         }
@@ -34,7 +36,7 @@
             <div class="id_pw">
                 <div class="input_form" id="id_form"><span class="material-symbols-outlined">account_circle</span><input id="id" class="id" placeholder="아이디"></div>
                 <div class="input_form" id="pw_form"><span class="material-symbols-outlined">lock</span><input id="pass" class="pass" placeholder="비밀번호" type="password"></div>
-                <p class="warning">this</p>
+                <p class="warning" id="warning"></p>
             </div>
             <button class="login_btn" onclick="login()">로그인</button>
         </div>
