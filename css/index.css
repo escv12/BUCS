@@ -1,0 +1,104 @@
+@import url(reset.css);
+
+body {
+  margin: 70px;
+  padding: 70px;
+}
+
+.top_bar {
+  /* 상단바 */
+  list-style: none;
+  background-color: rgb(104, 104, 104);
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.top_bar li {
+  float: left;
+  border-right: 2px solid #fff;
+}
+
+.top_bar li a {
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  color: rgb(255, 255, 255);
+  /* 글씨 */
+  font-size: 230%;
+  font-weight: bold;
+}
+
+.login {
+  /* 로그인 */
+  background-color: rgb(211, 211, 211);
+  width: 210px;
+  padding: 15px;
+  border: 3.4px solid rgb(146, 153, 255);
+  margin: 0;
+  float: left;
+  font-size: 1px;
+}
+
+button {
+  /* 상단바 */
+  width: 210px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+a {
+  /* 링크 */
+  text-decoration: none;
+  color: black;
+}
+
+a:active {
+  color: white;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+img { /* 이미지 */
+  float: left
+}
+
+#wrap {
+  width: 360px;
+  height: 230px;
+  float: left;
+}
+
+.box {
+  width: 300dp;
+  height: 230dp;
+  border: 1px solid black;
+  background-color: rgb(165, 165, 165);
+  float: left;
+  margin: 5px;
+  box-sizing: border-box;
+  font-size: 14pt;
+}
+
+.box_wrap {
+  float: right;
+}
+
+.Notice {
+  float: right;
+  color : grey
+}
+table{ border-collapse : collapse; }  /*이중선 제거*/
+th,td{
+     width: 100%;
+     height: 100%;
+     text-align: center;
+     border: 1px solid #000;
+     float : right;
+     vertical-align: top;	/* 위 */
+     vertical-align: bottom;   /* 아래 */
+     vertical-align: middle;   /* 가운데 */
+   }
