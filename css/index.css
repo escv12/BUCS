@@ -6,7 +6,9 @@ a{
 }
 
 html, body {
-  height: 100%
+  margin:0;
+  padding:0;
+  height:100%;
 }
 
 .container{
@@ -17,9 +19,6 @@ html, body {
   align-items: center;
   align-content: center;
   align-self: center;
-
-  padding-bottom: 200px;
-
 }
 
 /*===============헤더 메뉴=================*/
@@ -87,7 +86,7 @@ html, body {
 }
 
 .content_right{
-  width: 50%;
+  width: 68%;
   float: right;
 }
 
@@ -159,16 +158,34 @@ html, body {
 }
 
 
+
 /*---------------카테고리 관련 끝--------------*/
 
+/*------------------오른쪽-----------------*/
 
+.addiv{
+  border: 1px, solid black;
+  background-color: #252525;
+  color:white;
+  line-height: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+}
 
 /*===============컨텐츠 메뉴 끝=================*/
 
 
 /*===============푸터 메뉴=================*/
 
-
+.footer{
+  width:100%;
+   height:100px;
+   position:absolute;
+   bottom:0;
+   background:#5eaeff;
+  text-align: center;
+  color: white;
+}
 
 
 /*===============푸터 메뉴 끝=================*/
