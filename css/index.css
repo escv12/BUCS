@@ -259,9 +259,18 @@ html, body {
   padding: 0 10px;
 }
 
-.img_wrap{
-  border: 1px solid black;
-  height: 90px;
+.img_wrap > img{
+  width: 80px;
+  height: 80px;
+  padding-right: 20px;
+  object-fit: contain;
+}
+
+.user_id{
+  padding-top: 5px;
+  padding-right: 20px;
+  text-align: center;
+  font-size: 12px;
 }
 
 
