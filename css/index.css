@@ -5,7 +5,8 @@
   --sub-font-color: #888;
   --sub-color: #44AFD6;
   --background-color: #fff;
-  --category-title:#888;
+  --category-title:#9faeb9;
+  --category-title-color: #eef4f7;
   --category-line-color:#ddd;
 }
 
@@ -118,7 +119,7 @@ html, body {
 /*-------------로그인 관련----------------*/
 .account{
   width: 100%;
-  border: 1px solid var(--sub-font-color);
+  border: 1px solid var(--category-title);
   height: 100px;
   margin-bottom: 20px;
 
@@ -156,8 +157,8 @@ html, body {
 #study_title{
   height: 40px;
   line-height: 40px;
-  color: var(--background-color);
-  background-color: var(--category-title);
+  color: var(--main-font-color);
+  background-color: var(--category-title-color);
 }
 
 .study{
