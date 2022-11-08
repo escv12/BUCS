@@ -77,6 +77,15 @@ html, body {
   border-bottom: 2px solid var(--sub-color);
 }
 
+.search{
+  border: 1px solid var(--sub-font-color);
+  border-radius: 20px;
+  margin-left: 20px;
+  width: 150px;
+  padding: 5px 10px 5px 10px;
+}
+
+
 /*===============헤더 메뉴 끝=================*/
 
 
