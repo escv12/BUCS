@@ -83,18 +83,18 @@ html, body {
 .content{
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 1200px;
   padding: 20px;
 
 }
 
 .content_left{
-  width: 30%;
+  width: 24%;
   float: left;
 }
 
 .content_right{
-  width: 68%;
+  width: 74%;
   float: right;
 }
 
@@ -159,12 +159,36 @@ html, body {
   padding: 20px;
 }
 
-.sub_category_item{
-  padding-left: 20px;
-  padding-bottom: 10px;
-  padding-top: 10px;
+.sub_category{
+  border-bottom: 1px solid #ddd;
+  margin: 15px;
+  margin-bottom: 12px;
 }
 
+.sub_category_item{
+  padding:8px 0 8px 20px;
+  font-size: 14px;
+}
+.sub_category_item a:hover{
+  color: var(--sub-color);
+}
+
+.note{
+  margin-right: 5px;
+  color: var(--sub-color);
+  font-weight: 700;
+}
+
+.date{
+  margin-left: 10px;
+  color: var(--sub-font-color);
+  font-size: 14px;
+}
+
+.category_note{
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
 
 
 /*---------------카테고리 관련 끝--------------*/
@@ -178,8 +202,8 @@ html, body {
 .addiv{
   background-color: pink;
   color:white;
-  line-height: 150px;
-  height: 150px;
+  line-height: 250px;
+  height: 250px;
   margin-bottom: 25px;
 }
 
@@ -195,7 +219,7 @@ html, body {
 }
 
 .col_1, .col_2{
-  width: 50%;
+  width: 47%;
   text-align: left;
   padding: 10px 10px 0;
 }
