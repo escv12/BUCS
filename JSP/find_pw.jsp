@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,18 +12,28 @@
         $("#header").load("login_header.html");
         $("#footer").load("login_footer.html");
     });
+    function checkid(){
+    var regExpId = /^[a-z|A-Z|ã„±-ã…|ã…-ã…£|ê°€-í£]/;
+    var id = form.id.value
+    if (!regExpId.test(id)){
+    	alert("ì•„ì´ë””ëŠ” ë¬¸ìë¡œ í•´ì£¼ì„¸ìš”.");
+    	form.id.select();
+    	return;
+    }
+}
+    form.submit();
     </script>
-    <link rel="stylesheet" href="css/loginPage.css">
+    <link rel="stylesheet" href="loginPage.css">
 </head>
 <body>
     <div class="container">
         <div id="header"></div>
         <div class="form">
             <div class="id_pw">
-                <div class="input_form" id="id_form"><input class="find_pw_email" placeholder="ÀÌ¸ŞÀÏ¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></div>
-                <div class="input_form" id="pw_form"><input class="find_pw_id" placeholder="¾ÆÀÌµğ¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></div>
-            </div>
-            <button class="find_pw_btn" type="submit">´ÙÀ½</button>
+            <form action = "write.jsp" name = "find" method = "post">
+                <div class="input_form" id="id_form"><input type = "email" required class="find_pw_email" placeholder="ì´ë©”ì¼ë¥¼ ì…ë ¥í•˜ì„¸ìš”"></div>
+				<div class="input_form" id="pw_form"><input class="find_pw_id" name = "id" required placeholder="ì•„ì´ë””ë¥¼ ì…ë ¥í•˜ì„¸ìš”"></div>           
+            <input class="find_pw_btn" type="submit" value = "ë‹¤ìŒ" onClick = "checkid"></form></div>
         </div>
         <div id="footer"></div>
     </div>

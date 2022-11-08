@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>quiz_board</title>
-    <link rel="stylesheet" href="css/quiz_board.css">
-    <link rel="stylesheet" href="css/loginPage.css">
+    <link rel="stylesheet" href="quiz_board.css">
+    <link rel="stylesheet" href="loginPage.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function() {
@@ -87,7 +87,7 @@
             </div>
             <div class="quiz_board_bot">
                 <ul id="change_page">
-                    <li><a href="#"><<</a></li>
+                    <li><a href="#"></a></li>
                     <li><a href="#">1</a></li>
                     <li><a href="#">2</a></li>
                     <li><a href="#">3</a></li>

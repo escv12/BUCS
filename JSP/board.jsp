@@ -13,8 +13,8 @@
             $("#header").load("login_header.html");
         });
     </script>
-    <link rel="stylesheet" href="css/loginPage.css">
-    <link rel="stylesheet" href="css/board.css">
+    <link rel="stylesheet" href="loginPage.css">
+    <link rel="stylesheet" href="board.css">
 </head>
 <body>
 

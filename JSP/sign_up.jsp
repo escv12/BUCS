@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,26 +12,28 @@
         $("#header").load("login_header.html");
         $("#footer").load("login_footer.html");
     });
+    
     </script>
-    <link rel="stylesheet" href="css/loginPage.css">
+    <link rel="stylesheet" href="loginPage.css">
 </head>
 <body>
     <div class="container">
         <div id="header"></div>
         <div class="form">
             <div class="user_info">
-                <div class="input_text">ÀÌ¸ŞÀÏ</div>
-                <div class="input_form" id="email"><input class="id" placeholder="ÀÌ¸ŞÀÏ"></div>
-                <div class="input_text">´Ğ³×ÀÓ</div>
-                <div class="input_form" id="nickname"><input class="pass" placeholder="´Ğ³×ÀÓ"></div>
-                <div class="input_text">¾ÆÀÌµğ</div>
-                <div class="input_form" id="id"><input class="id" placeholder="¾ÆÀÌµğ"></div>
-                <div class="input_text">ºñ¹Ğ¹øÈ£</div>
-                <div class="input_form" id="password"><input class="pass" placeholder="ºñ¹Ğ¹øÈ£" type="password"></div>
-                <div class="input_text">ºñ¹Ğ¹øÈ£ È®ÀÎ</div>
-                <div class="input_form" id="password_confirm"><input class="id" placeholder="ºñ¹Ğ¹øÈ£ È®ÀÎ" type="password"></div>
-            </div>
-            <button class="sign_up_btn" type="submit">È¸¿ø°¡ÀÔ</button>
+            <form action = "write.jsp" name = "sgin" method = "post">
+                <div class="input_text">ì´ë©”ì¼</div>
+                <div class="input_form" id="email"><input type="email" required class="id" placeholder="ì´ë©”ì¼"></div>
+                <div class="input_text">ë‹‰ë„¤ì„</div>
+                <div class="input_form" id="nickname"><input class="pass" required placeholder="ë‹‰ë„¤ì„"></div>
+                <div class="input_text">ì•„ì´ë””</div>
+                <div class="input_form" id="id"><input class="id" required placeholder="ì•„ì´ë””"></div>
+                <div class="input_text">ë¹„ë°€ë²ˆí˜¸</div>
+                <div class="input_form" id="password"><input type = "password" required class="pass" name = "pw" placeholder="ë¹„ë°€ë²ˆí˜¸" type="password"></div>
+                <div class="input_text">ë¹„ë°€ë²ˆí˜¸ í™•ì¸</div>
+                <div class="input_form" id="password_confirm"><input type = "password" required class="id" name = "passwdRe" placeholder="ë¹„ë°€ë²ˆí˜¸ í™•ì¸" type="password"></div>           
+            <input class="sign_up_btn" type="submit" value = "ê°€ì…í•˜ê¸°">
+          </form></div>
         </div>
         <div id="footer"></div>
     </div>
