@@ -22,7 +22,7 @@
 }
 
 .write_title{
-    width: 80%;
+    max-width: 1000px;
     height: 30px;
     border: 1px solid #888;
 }
