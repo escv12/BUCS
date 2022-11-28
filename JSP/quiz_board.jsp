@@ -1,0 +1,102 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quiz_board</title>
+    <link rel="stylesheet" href="quiz_board.css">
+    <link rel="stylesheet" href="loginPage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#header").load("login_header.html");
+    });
+    </script>
+</head>
+<body>
+    <div id="header"></div>
+    <div class="quiz_board_wrap">
+        <div class="quiz_board">
+            <div class="quiz_board_top">
+                <div id="quiz">문제</div>
+                <div id="answer">정답</div>
+            </div>
+            <div class="quiz_board_mid">
+                <div class="search_wrap">
+                    <select class="search_method">
+                        <option value="1">제목+내용</option>
+                        <option value="2">제목</option>
+                        <option value="3">내용</option>
+                        <option value="4">번호</option>
+                    </select>
+                    <div class="search"><input placeholder="검색어를 입력해주세요"></div>
+                    <button class="search_btn">검색</button>
+                </div>
+                
+                <table class="quiz_board_table">
+                    <thead>
+                        <tr>
+                            <th id="number">번호</th>
+                            <th id="title">제목</th>
+                            <th id="date">등록일자</th>
+                            <th id="count">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody id="quiz_contents">
+                        <tr>
+                            <td>9999</td>
+                            <td>테스트용 입니다</td>
+                            <td>2022-10-12</td>
+                            <td>1520</td>
+                        </tr>
+
+                        <tr>
+                            <td>002</td>
+                            <td>테스트용 입니다</td>
+                            <td>2022-10-10</td>
+                            <td>152</td>
+                        </tr>
+
+                        <tr>
+                            <td>003</td>
+                            <td>테스트용 입니다</td>
+                            <td>2022-10-11</td>
+                            <td>120</td>
+                        </tr>
+
+                        <tr>
+                            <td>004</td>
+                            <td>테스트용 입니다</td>
+                            <td>2022-10-11</td>
+                            <td>99999999</td>
+                        </tr>
+
+                        <tr>
+                            <td>005</td>
+                            <td>테스트용 입니다</td>
+                            <td>2022-10-11</td>
+                            <td>120</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="quiz_board_bot">
+                <ul id="change_page">
+                    <li><a href="#"></a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">>></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
