@@ -24,7 +24,7 @@
 </head>
 <body>
     <div class="container">
-        <%@ include file="./login_header.jsp" %>
+        <%@ include file="./header_footer/login_header.jsp" %>
         
         
         <div class="form">
@@ -36,7 +36,7 @@
         </div>
         
         
-        <%@ include file="./login_footer.jsp" %>
+        <%@ include file="./header_footer/login_footer.jsp" %>
     </div>
     
 </body>

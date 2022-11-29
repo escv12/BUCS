@@ -21,20 +21,20 @@
     border-radius: 6px;
 }
 
-.write_title{
+.write_title, .hash_tag{
     max-width: 1000px;
     height: 30px;
     border: 1px solid #888;
 }
 
-.write_title #title{
+.write_title #title, .hash_tag #hash_tag{
     border: none;
     height: 90%;
     width: 90%;
     margin-left: 10px;
 }
 
-.write_title #title:focus{
+.write_title #title:focus, .hash_tag #hash_tag:focus, .write_content:focus{
     outline: none;
 }
 

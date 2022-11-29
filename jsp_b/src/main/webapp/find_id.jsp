@@ -13,7 +13,7 @@
 
 <body>
 	<div class="container">
-		<%@ include file="./login_header.jsp" %>
+		<%@ include file="./header_footer/login_header.jsp" %>
 		
 		
 		<form class="form" action = "./process/find_id_process.jsp" name = "find_id" method = "post">
@@ -25,7 +25,7 @@
 		
 		
         
-        <%@ include file="./login_footer.jsp" %>
+        <%@ include file="./header_footer/login_footer.jsp" %>
 	
 	</div>
 </body>

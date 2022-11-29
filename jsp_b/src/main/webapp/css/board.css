@@ -1,5 +1,12 @@
 @import "reset.css";
 
+a{
+	text-decoration: none;
+	color:black;
+}
+
+
+
 .board_wrap{
     margin-left: auto;
     margin-right: auto;
