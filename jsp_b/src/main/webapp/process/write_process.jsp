@@ -17,8 +17,6 @@
 	category = (String) request.getParameter("category");
 	content = (String) request.getParameter("content");
 	hash_tag = (String) request.getParameter("hash_tag");
-	
-	
-	
+
 	
 %>

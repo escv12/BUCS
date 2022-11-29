@@ -31,6 +31,11 @@ try{
 			break;
 		}
 	}
+	
+	PrintWriter script = response.getWriter();
+    script.println("<script>alert('존재하지 않는 유저입니다'); location.href ='../login.jsp'</script>");
+	script.close();
+	return;
 
 }catch(Exception e){
 	out.println(e);
