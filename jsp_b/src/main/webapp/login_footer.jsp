@@ -10,9 +10,9 @@
 </head>
 <body>
 	<ul class="find_wrap">
-        <li><a href="find_id.html">아이디</a></li>
-        <li><a href="find_pw.html">비밀번호 찾기</a></li>
-        <li><a href="sign_up.html">회원가입</a></li>
+        <li><a href="./find_id.jsp">아이디</a></li>
+        <li><a href="./find_pw.jsp">비밀번호 찾기</a></li>
+        <li><a href="./sign_up.jsp">회원가입</a></li>
 	</ul>
 </body>
 </html>

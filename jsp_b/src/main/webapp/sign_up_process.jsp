@@ -31,7 +31,7 @@
 		ptmt.setString(3, EMAIL);
 		ptmt.executeUpdate();
 		
-		response.sendRedirect("./login.jsp");
+		response.sendRedirect("./index.jsp");
 
 	}catch(SQLIntegrityConstraintViolationException e){
 		session.setAttribute("msg", "이미 존재하는 아이디 입니다.");

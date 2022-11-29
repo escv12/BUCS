@@ -16,7 +16,10 @@
         	String msg = null;
         
 	        if(session!=null || !request.isRequestedSessionIdValid())
+	        {
 	        	msg = (String)session.getAttribute ("msg");
+	        	session.invalidate();
+	        }
 	        	
 	        if(msg == null)
 	        	msg = "";

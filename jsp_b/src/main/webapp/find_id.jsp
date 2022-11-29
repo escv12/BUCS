@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,20 +8,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>find_id</title>
-    <link rel="stylesheet" href="loginPage.css">
+    <link rel="stylesheet" href="./css/loginPage.css">
 </head>
 <body>
-<div class="container">
-<div id="header"></div>
-<div class="form">
-    
-    <form action = "write.jsp" name = "fe" method = "post">
-    <div class="id_pw"> 
-        <div class="input_form" id="email_form"><input type="email" required class =  "find_id_email" name = "email" placeholder="ÀÌ¸ŞÀÏ¸¦ ÀÔ·ÂÇÏ¼¼¿ä"></div>
-    </div>
-    <input class="find_id_btn" type="submit" value = "´ÙÀ½">
-    </form>
-<div id="footer"></div></div>
-</div>
+	<div class="container">
+		<%@ include file="./login_header.jsp" %>
+		
+		
+		<form class="form" action = "write.jsp" name = "fe" method = "post">
+			<div class="id_pw"> 
+			    <div class="input_form" id="email_form"><input type="email" required class =  "find_id_email" name = "email" placeholder="ì´ë©”ì¼ë¥¼ ì…ë ¥í•˜ì„¸ìš”"></div>
+			</div>
+			<input class="find_id_btn" type="submit" value = "ë‹¤ìŒ">
+		</form>
+		
+		
+        
+        <%@ include file="./login_footer.jsp" %>
+	
+	</div>
 </body>
 </html>

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header class="header">
-		<a href="login.html" class="logo">테스트 로고</a>
+		<a href="./index.jsp" class="logo">테스트 로고</a>
 	</header>
 </body>
 </html>
