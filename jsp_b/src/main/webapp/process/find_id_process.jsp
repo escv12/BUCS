@@ -4,7 +4,7 @@
 
 
 <%
-RequestDispatcher rd = request.getRequestDispatcher("./sign_up.jsp");
+RequestDispatcher rd = request.getRequestDispatcher("../found.jsp");
 PreparedStatement ptmt = null;
 ResultSet rs = null;
 request.setCharacterEncoding("UTF-8");
@@ -20,13 +20,11 @@ try{
 	
 	while(rs.next()){
 		if(email.equals(rs.getString("EMAIL"))){
-			session.setAttribute("userID", rs.getString("EMAIL"));
+			session.setAttribute("userID", rs.getString("userid"));
 			rd.forward(request, response);
 			return;
 		}
 	}
-	
-	
 	
 	PrintWriter script = response.getWriter();
 	script.println("<script>alert('아이디가 존재하지 않습니다.'); location.href='../find_id.jsp';</script>");
