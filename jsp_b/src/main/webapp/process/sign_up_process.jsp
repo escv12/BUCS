@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
+<%@ page import="util.SHA256"%>
 <%@ include file = "connect.jsp" %>
 
 <%
@@ -10,6 +11,8 @@
 	String userID = null;
 	String userPWD = null;
 	String EMAIL = null;
+	String emailHash = null;
+	int emailCheck = 0;
 	ResultSet rs = null;
 	
 	userID = (String) request.getParameter("userID");
@@ -23,15 +26,25 @@
 	}
 	
 	try{
-		String  sql = "INSERT INTO user(userid, userpwd, EMAIL) VALUES(?,?,?)";
+		String  sql = "INSERT INTO user(userid,userpwd,EMAIL,userEmailHash,emailCheck) VALUES(?,?,?,?,?)";
 		ptmt = conn.prepareStatement(sql);
 		
 		ptmt.setString(1, userID);
 		ptmt.setString(2, userPWD);
 		ptmt.setString(3, EMAIL);
+		emailHash = SHA256.getSHA256(EMAIL);
+		ptmt.setString(4, emailHash);
+		ptmt.setInt(5, emailCheck);
 		ptmt.executeUpdate();
 		
-		response.sendRedirect("./index.jsp");
+		session.setAttribute("tempID", userID);    // ID 등록
+		session.setAttribute("EMAIL", EMAIL);
+		session.setAttribute("emailHash", emailHash);
+		session.setAttribute("emailCheck", emailCheck);
+		PrintWriter script = response.getWriter();
+		
+		script.println("<script>location.href = './sendMail.jsp'</script>"); // 이메일 인증
+		script.close();
 
 	}catch(SQLIntegrityConstraintViolationException e){
 		session.setAttribute("msg", "이미 존재하는 아이디 입니다.");

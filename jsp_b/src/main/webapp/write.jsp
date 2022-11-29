@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,34 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>write</title>
-    <link rel="stylesheet" href="write.css">
+    <link rel="stylesheet" href="./css/write.css">
 </head>
 <body>
-    <div class="test_header">�Խ��� �׽�Ʈ</div>
+    <%@ include file="./header_footer/index_header.jsp" %>
+    
     <div class="write_wrap">
-        <div class="write">
-            <div class="write_text">����</div>
-            <div class=" write_title"><input id="title" placeholder="������ �Է����ּ���"></div>
-            <div class="write_text">ī�װ���</div>
-            <select class="write_category" id="write">
-                <option value="1" selected>����</option>
-                <option value="2">����</option>
-                <option value="3">����</option>
-            </select>
-            <div class="write_text">����</div>
-            <textarea class="write_content">test</textarea>
-            <div class="write_text">���</div>
-            <select class="write_category" id="code">
-                <option value="1" selected>JAVA</option>
-                <option value="2">PYTHON</option>
-                <option value="3">HTML</option>
-            </select>
-
-            <div class="write_btn_wrap">
-                <button class="write_btn" id="cancel">���</button>
-                <button class="write_btn" id="write">�۾���</button>
+        <form class="write" action="./process/write_process.jsp" name="write" method="post">
+            <div class="write_text">제목</div>
+            <div class=" write_title">
+            <input name="title" id="title" placeholder="제목을 입력해주세요">
             </div>
-        </div>
+            <div class="write_text">카테고리</div>
+            <select name="category" class="write_category" id="write">
+                <option value="1" selected>자유</option>
+                <option value="2">질문</option>
+                <option value="3">건의</option>
+            </select>
+            <div class="write_text">내용</div>
+            <textarea name="content" class="write_content"></textarea>
+            <div class="write_text">해쉬태그</div>
+            <div class=" hash_tag">
+            <input name="hash_tag" id="hash_tag" placeholder="해쉬태그를 입력해주세요 콤마(,)로 구분">
+            </div>
+	        <div class="write_btn_wrap">
+	            <button class="write_btn" id="cancel">취소</button>
+	            <button class="write_btn" id="write">글쓰기</button>
+        	</div>
+        </form>
+        
     </div> 
 </body>
 </html>

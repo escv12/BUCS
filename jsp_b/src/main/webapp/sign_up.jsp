@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <%@ include file="./login_header.jsp" %>
+        <%@ include file="../header_footer/login_header.jsp" %>
         
         <%
         	String msg = null;
@@ -26,11 +26,9 @@
 	        
         %>
         
-        
-        
         <div class="form">
             <div class="user_info">
-	            <form action = "./process/sign_up_process.jsp" name = "sgin" method = "post">
+	            <form action = "./process/sign_up_process.jsp" name = "sign" method = "post">
 	                <div class="input_text">이메일</div>
 	                <div class="input_form" id="email"><input maxlength='40' type="email" required class="id" name = "EMAIL" placeholder="이메일"></div>        
 	                <div class="input_text">아이디</div>
@@ -46,7 +44,7 @@
         </div>
         
         
-        <%@ include file="./login_footer.jsp" %>
+        <%@ include file="../header_footer/login_footer.jsp" %>
     </div>
 </body>
 </html>
