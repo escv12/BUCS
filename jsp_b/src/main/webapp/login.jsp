@@ -16,7 +16,7 @@
         <%@ include file="./login_header.jsp" %>
         
         
-        <form  class="form" action = "./login_process.jsp" name = "login" method = "post">
+        <form  class="form" action = "./process/login_process.jsp" name = "login" method = "post">
             <div class="id_pw">
                 <div class="input_form" id="id_form">
                 	<span class="material-symbols-outlined">account_circle</span>

@@ -8,6 +8,4 @@ String password ="root";
 
 Class.forName("com.mysql.jdbc.Driver");
 conn = DriverManager.getConnection(url, user, password);
-
-
 %>

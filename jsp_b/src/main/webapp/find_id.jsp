@@ -15,7 +15,7 @@
 		<%@ include file="./login_header.jsp" %>
 		
 		
-		<form class="form" action = "write.jsp" name = "fe" method = "post">
+		<form class="form" action = "./process/find_id_process.jsp" name = "find_id" method = "post">
 			<div class="id_pw"> 
 			    <div class="input_form" id="email_form"><input type="email" required class =  "find_id_email" name = "email" placeholder="이메일를 입력하세요"></div>
 			</div>

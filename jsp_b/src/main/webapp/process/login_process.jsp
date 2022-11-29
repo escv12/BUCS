@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
-
 <%@ include file = "connect.jsp" %>
+
 <%
 PreparedStatement ptmt = null;
 ResultSet rs = null;
@@ -26,7 +26,5 @@ try{
 }catch(Exception e){
 	out.println(e);
 }
-
-
 
 %>
