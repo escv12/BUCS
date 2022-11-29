@@ -5,35 +5,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign_up</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("#header").load("login_header.html");
-        $("#footer").load("login_footer.html");
-    });
-    
-    </script>
-    <link rel="stylesheet" href="loginPage.css">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="./css/loginPage.css">
 </head>
 <body>
     <div class="container">
-        <div id="header"></div>
+        <%@ include file="./login_header.jsp" %>
+        
+        <%
+        	String msg = null;
+        
+	        if(session!=null || !request.isRequestedSessionIdValid())
+	        	msg = (String)session.getAttribute ("msg");
+	        	
+	        if(msg == null)
+	        	msg = "";
+	        
+        %>
+        
+        
+        
         <div class="form">
             <div class="user_info">
-            <form action = "./sign_up_process.jsp" name = "sgin" method = "post">
-                <div class="input_text">이메일</div>
-                <div class="input_form" id="email"><input type="email" required class="id" name = "EMAIL" placeholder="이메일"></div>        
-                <div class="input_text">아이디</div>
-                <div class="input_form" id="id"><input class="userid" name = "userID" required placeholder="아이디"></div>
-                <div class="input_text">비밀번호</div>
-                <div class="input_form" id="password"><input type = "password" required class="pass" name = "userPWD" placeholder="비밀번호" type="password"></div>
-                <div class="input_text">비밀번호 확인</div>
-                <div class="input_form" id="password_confirm"><input type = "password" required class="id" name = "userPWD" placeholder="비밀번호 확인" type="password"></div>           
-            <input class="sign_up_btn" type="submit" value = "가입하기">
-          </form></div>
+	            <form action = "./sign_up_process.jsp" name = "sgin" method = "post">
+	                <div class="input_text">이메일</div>
+	                <div class="input_form" id="email"><input maxlength='40' type="email" required class="id" name = "EMAIL" placeholder="이메일"></div>        
+	                <div class="input_text">아이디</div>
+	                <div class="input_form" id="id"><input maxlength='20' class="userid" name = "userID" required placeholder="아이디"></div>
+	                <div class="input_text">비밀번호</div>
+	                <div class="input_form" id="password"><input maxlength='20' type = "password" required class="pass" name = "userPWD" placeholder="비밀번호" type="password"></div>
+	                <div class="input_text">비밀번호 확인</div>
+	                <div class="input_form" id="password_confirm"><input maxlength='20' type = "password" required class="pass" name = "userPWD" placeholder="비밀번호 확인" type="password"></div>           
+	            	<p class="warning"><%= msg %></p>
+	            	<input class="sign_up_btn" type="submit" value = "가입하기">
+	          </form>
+          </div>
         </div>
-        <div id="footer"></div>
+        
+        
+        <%@ include file="./login_footer.jsp" %>
     </div>
 </body>
 </html>

@@ -1,0 +1,168 @@
+@import "reset.css";
+
+.board_wrap{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.board{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border: 1px solid #888;
+    padding: 40px;
+    width: 80%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.board_top{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.board_top > div{
+    display: inline;
+
+}
+
+.board_top > div > a{
+    padding: 0 20px 5px 20px;
+}
+
+
+.board_top > div > a:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #48BAE4;
+    color: #48BAE4;
+
+}
+
+.board_top > div+div{
+    padding-left: 30px;
+
+}
+
+.board_search_wrap{
+    display: table;
+    float: right;
+    margin-bottom: 20px;
+}
+
+.board_search_wrap > *{
+    display: table-cell;
+}
+
+#board_search{
+    border: 1px solid black;
+    width: 250px;
+    height: 30px;
+}
+
+
+#board_search > input{
+    height: 90%;
+    color: black;
+}
+
+.board_search_select{
+    border: 1px solid black;
+    width: 100px;
+    height: 40px;
+    margin-right: 20px;
+}
+
+#board_search_btn{
+    border: 1px solid #48BAE4;
+    background-color: #48BAE4;
+    color: white;
+    font-size: 16px;
+    width: 100px;
+    height: 40px;
+    margin-left: 20px;
+}
+
+#board_search_btn:hover{
+    cursor: pointer;
+}
+
+.board_table{
+    width: 100%;
+    text-align: left;
+    line-height: 1;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    margin : 20px 10px;
+}
+
+#number{
+    width: 50px;
+}
+
+#date{
+    width: 100px;
+}
+
+#count{
+    width: 80px;
+}
+
+.board_table > thead > tr > th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.board_table > tbody > tr > td {
+    padding: 10px;
+    vertical-align: top;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#board_contents tr:nth-child(odd){
+    background-color: #eee;
+}
+
+#board_contents > .info{
+    background-color: #888 !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#change_page{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    text-decoration: none;
+}
+
+#change_page > li{
+    display: inline;
+    color: #888;
+}
+
+#change_page li+li{
+    padding-left: 20px;
+}

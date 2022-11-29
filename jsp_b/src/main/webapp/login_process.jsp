@@ -19,6 +19,7 @@ try{
 	while(rs.next()){
 		if(id.equals(rs.getString("userid")) && pw.equals(rs.getString("userpwd"))){
 			out.println("로그인 성공!");
+			break;
 		}
 	}
 

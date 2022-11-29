@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,9 @@
 </head>
 <body>
 	<ul class="find_wrap">
-        <li><a href="find_id.html">���̵�</a></li>
-        <li><a href="find_pw.html">��й�ȣ ã��</a></li>
-        <li><a href="sign_up.html">ȸ������</a></li>
+        <li><a href="find_id.html">아이디</a></li>
+        <li><a href="find_pw.html">비밀번호 찾기</a></li>
+        <li><a href="sign_up.html">회원가입</a></li>
 	</ul>
 </body>
 </html>

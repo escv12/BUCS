@@ -1,0 +1,99 @@
+@import "reset.css";
+
+.write_wrap{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-top: 100px;
+}
+
+.write {
+    border: 2px solid #dadada;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 40px;
+    width: 60%;
+    margin-bottom: 20px;
+    border-radius: 6px;
+}
+
+.write_title{
+    max-width: 1000px;
+    height: 30px;
+    border: 1px solid #888;
+}
+
+.write_title #title{
+    border: none;
+    height: 90%;
+    width: 90%;
+    margin-left: 10px;
+}
+
+.write_title #title:focus{
+    outline: none;
+}
+
+.write_content{
+    width: 100%;
+    height: 300px;
+    border: 1px solid #888;
+    resize: none;
+}
+
+.write_category{
+    width: 200px;
+    height: 30px;
+    border: 1px solid #888;
+    outline: none;
+}
+
+
+.write_text{
+    text-align: left;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.write_btn_wrap{
+    margin-top: 50px;
+    text-align: right;
+}
+
+.write_btn{
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.write_btn:hover{
+    cursor: pointer;
+}
+
+.write_btn_wrap #cancel{
+    background-color: #888;
+    border: 1px solid #888;
+}
+
+.write_btn_wrap #write{
+    background-color: #44AFD6;
+    border: 1px solid #44AFD6;
+}
+
+.test_header{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: #44AFD6;
+    line-height: 80px;
+    color: white;
+    font-size: 30px;
+    height: 80px;
+    margin-top: 100px;
+}
