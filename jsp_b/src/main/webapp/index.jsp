@@ -8,35 +8,38 @@
 <link rel="stylesheet" href="./css/index.css">
 </head>
 <body>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String userid = (String)session.getAttribute("userid");
+	String email = (String)session.getAttribute("EMAIL");
+%>  
+
+
 <div class="container">
-    <header class="header">
-      <nav class="gnb">
-        <ul>
-          <li><a href="index.html"><img src="image/logo.PNG"></a></li>
-          <li><a class="menuLink" href="#">파이썬</a></li>
-          <li><a class="menuLink" href="#">자바</a></li>
-          <li><a class="menuLink" href="#">html</a></li>
-          <li><a class="menuLink" href="#">질문</a></li>
-          <li><a class="menuLink" href="#">퀴즈</a></li>
-          <li><a class="menuLink" href="#">게시판</a></li>
-          <li><input class="search" type="text" placeholder="검색어를 입력해주세요"></li>
-          
-        </ul>
-      </nav>
-    </header>
+    <%@ include file="./header_footer/index_header.jsp" %>
 
     <div class="content">
-
-
       <!------------------------왼쪽 메뉴-------------------------------->
       <div class="content_left">
         <div class="account">
+        <% if(userid == null) {%>	
+        <!-- 로그인전 화면 -->
           <a class="login_btn" href="./login.jsp">로그인</a>
           <div class="sub_area">
             <a href="./find_id.jsp">아이디 | </a>
             <a href="./find_pw.jsp">비밀번호 찾기 | </a>
             <a href="./sign_up.jsp">회원가입</a>
           </div>
+          <%}else{ %>
+          <!-- 로그인후 화면 -->
+          	<img src="./image/character.png">
+	          <div class="user_area">
+	            <p><%= userid %>님</p>
+	            <p><%= email %></p>
+	            <a href="./process/logout_process.jsp">로그아웃  |   </a>
+	            <a href="./find_id.jsp">회원정보 수정</a>
+	          </div>
+          <%} %>
         </div>
 
           <div class="study">
@@ -64,9 +67,11 @@
               </li>
             </ul>
           </div>
+          
+          <% if(userid != null) {%>	
 
           <div class="study">
-            <p id="study_title">회원 - 로그인 성공시 생성</p>
+            <p id="study_title">회원</p>
             <ul class="category">
               <li class="category_item">
                 <ul class="sub_category">
@@ -92,6 +97,8 @@
               </li>
             </ul>
           </div>
+          
+          <%} %>
       </div>
       <!------------------------왼쪽 메뉴 끝-------------------------------->
       <!------------------------오른쪽 메뉴-------------------------------->

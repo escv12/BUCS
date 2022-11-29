@@ -18,7 +18,16 @@ try{
 	
 	while(rs.next()){
 		if(id.equals(rs.getString("userid")) && pw.equals(rs.getString("userpwd"))){
-			response.sendRedirect("./index.jsp");
+			if(rs.getInt("emailCheck") != 1){
+			    PrintWriter script = response.getWriter();
+			    script.println("<script>alert('이메일 인증이 되지 않은 사용자 입니다. 이메일이 오지 않았다면 스팸메일함을 확인해주세요'); location.href ='../index.jsp'</script>");
+				script.close();
+				return;
+			}
+			    
+			session.setAttribute("userid", rs.getString("userid"));
+			session.setAttribute("EMAIL", rs.getString("EMAIL"));	
+			response.sendRedirect("../index.jsp");
 			break;
 		}
 	}
