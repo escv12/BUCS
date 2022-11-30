@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>write</title>
-    <link rel="stylesheet" href="./css/write.css">
+    <link rel="stylesheet" href="./css/content.css">
 </head>
 <body>
     <%@ include file="./header_footer/index_header.jsp" %>
@@ -19,10 +19,9 @@
             <p id="title">회차/제목  |  <span class="content_title"></span></p>
         </div>
         <!-- 내용 -->
-        <div class="content">
-        	<textarea></textarea>
+        <textarea class="content" readonly="readonly">
 
-        </div>
+        </textarea>
         <!-- 댓글 -->
         <table class="reply_wrap">
             <tbody id="content_reply">

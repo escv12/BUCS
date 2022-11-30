@@ -84,8 +84,8 @@
          
                     	%>
 	                    	<tr>
-	                            <td><%= qnanum %></td>
-	                            <td><a onclick="" ><%= title %></a></td>
+	                            <td><form id="content" action="./content.jsp" name="content" method="post"><%= qnanum %></form></td>
+	                            <td><a href="#" onclick="document.getElementById('content').submit();"><%= title %></a></td>
 	                            <td><%= writeday %></td>
 	                            <td><%= hitCount %></td>
 	                        </tr>
