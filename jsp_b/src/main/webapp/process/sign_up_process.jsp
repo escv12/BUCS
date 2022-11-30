@@ -41,8 +41,8 @@
 		session.setAttribute("EMAIL", EMAIL);
 		session.setAttribute("emailHash", emailHash);
 		session.setAttribute("emailCheck", emailCheck);
-		PrintWriter script = response.getWriter();
 		
+		PrintWriter script = response.getWriter();
 		script.println("<script>location.href = './sendMail.jsp'</script>"); // 이메일 인증
 		script.close();
 

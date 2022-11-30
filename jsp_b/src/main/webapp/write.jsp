@@ -16,7 +16,7 @@
         <form class="write" action="./process/write_process.jsp" name="write" method="post">
             <div class="write_text">제목</div>
             <div class=" write_title">
-            <input name="title" id="title" placeholder="제목을 입력해주세요">
+            <input maxlength='50' name="title" id="title" placeholder="제목을 입력해주세요">
             </div>
             <div class="write_text">카테고리</div>
             <select name="category" class="write_category" id="write">
@@ -25,10 +25,10 @@
                 <option value="3">건의</option>
             </select>
             <div class="write_text">내용</div>
-            <textarea name="content" class="write_content"></textarea>
+            <textarea maxlength='2000' name="content" class="write_content"></textarea>
             <div class="write_text">해쉬태그</div>
             <div class=" hash_tag">
-            <input name="hash_tag" id="hash_tag" placeholder="해쉬태그를 입력해주세요 콤마(,)로 구분">
+            <input maxlength='50' name="hash_tag" id="hash_tag" placeholder="해쉬태그를 입력해주세요 콤마(,)로 구분">
             </div>
 	        <div class="write_btn_wrap">
 	            <button class="write_btn" id="cancel">취소</button>
