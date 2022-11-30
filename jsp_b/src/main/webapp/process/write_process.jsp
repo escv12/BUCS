@@ -24,7 +24,7 @@
 	
 	if(userID == null){
 		PrintWriter script = response.getWriter();
-	    script.println("<script>alert('로그안 후 글쓰기가 가능합니다'); location.href ='../board.jsp'</script>");
+	    script.println("<script>alert('로그인 후 글쓰기가 가능합니다'); location.href ='../board.jsp'</script>");
 		script.close();
 		return;
 	}
@@ -34,11 +34,13 @@
 			sql = "SELECT * FROM qna ORDER BY qnanum DESC LIMIT 1;";
 			ptmt = conn.prepareStatement(sql);
 			rs = ptmt.executeQuery();
-			while(rs.next()){
+			while(rs.next())
 				latestNum = rs.getInt("qnanum");
-			}
 		}catch(Exception e){
-			out.println(String.format("%s %d",e, latestNum));
+			PrintWriter script = response.getWriter();
+		    script.println("<script>alert('글쓰기중 오류가 발생했습니다'); location.href ='../board.jsp'</script>");
+			script.close();
+			return;
 		}
 		
 		sql = "INSERT INTO qna(qnanum,content,TITLE,HASHTAG,userid) VALUES(?,?,?,?,?);";
@@ -62,9 +64,5 @@
 		out.println(e);
 		return;
 	}
-	
-	
-	
-
 	
 %>
