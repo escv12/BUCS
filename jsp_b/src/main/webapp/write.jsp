@@ -13,7 +13,7 @@
     <%@ include file="./header_footer/index_header.jsp" %>
     
     <div class="write_wrap">
-        <form class="write" action="./process/write_process.jsp" name="write" method="post">
+        <form class="write" action="./process/post_process.jsp" name="write" method="post">
             <div class="write_text">제목</div>
             <div class=" write_title">
             <input maxlength='50' name="title" id="title" placeholder="제목을 입력해주세요">

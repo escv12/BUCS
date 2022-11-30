@@ -154,3 +154,7 @@ input:focus{
     margin-bottom : 10px;
     font-size: 12px;
 }
+
+.input_form{
+	margin-top: 10px;
+}

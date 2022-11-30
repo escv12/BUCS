@@ -37,7 +37,7 @@
 	            <p><%= userid %>님</p>
 	            <p><%= email %></p>
 	            <a href="./process/logout_process.jsp">로그아웃  |   </a>
-	            <a href="./find_id.jsp">회원정보 수정</a>
+	            <a href="./change_info.jsp">회원정보 수정</a>
 	          </div>
           <%} %>
         </div>

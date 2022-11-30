@@ -13,7 +13,6 @@ try{
 	
 	String  sql = "select * from user";
 	ptmt = conn.prepareStatement(sql);
-	
 	rs = ptmt.executeQuery();
 	
 	while(rs.next()){
