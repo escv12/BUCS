@@ -1,8 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ page import="java.io.PrintWriter"%>
 <%@ include file = "connect.jsp" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 
 <%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일");
 
 	String title = null;
 	String category = null;
@@ -43,7 +49,7 @@
 			return;
 		}
 		
-		sql = "INSERT INTO qna(qnanum,content,TITLE,HASHTAG,userid) VALUES(?,?,?,?,?);";
+		sql = "INSERT INTO qna(qnanum,content,TITLE,HASHTAG,userid,writeday) VALUES(?,?,?,?,?,?);";
 		ptmt = conn.prepareStatement(sql);
 		
 		ptmt.setInt(1, latestNum + 1);
@@ -51,6 +57,7 @@
 		ptmt.setString(3, title);
 		ptmt.setString(4, hash_tag);
 		ptmt.setString(5, userID);
+		ptmt.setString(6, sf.format(nowTime));
 		
 		ptmt.executeUpdate();
 		

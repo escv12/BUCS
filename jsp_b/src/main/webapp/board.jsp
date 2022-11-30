@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "./process/connect.jsp" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Board</title>
@@ -12,7 +12,19 @@
 </head>
 <%
 	request.setCharacterEncoding("UTF-8");
+	PreparedStatement ptmt = null;
+	ResultSet rs = null;
+	
 	String userid = (String)session.getAttribute("userid");
+	
+	int qnanum = 0;
+	String title = null;
+	String writeday = null;
+	int hitCount = 0;
+	
+	String sql = "SELECT * FROM qna ORDER BY qnanum DESC;";
+	ptmt = conn.prepareStatement(sql);
+	rs = ptmt.executeQuery();
 %>
                 
 <body>
@@ -63,28 +75,21 @@
                             <td>2022-10-12</td>
                             <td>1520</td>
                         </tr>
-
-
-                        <tr>
-                            <td>9999</td>
-                            <td>테스트용 입니다</td>
-                            <td>2022-10-12</td>
-                            <td>1520</td>
-                        </tr>
-
-                        <tr>
-                            <td>002</td>
-                            <td>테스트용 입니다</td>
-                            <td>2022-10-10</td>
-                            <td>152</td>
-                        </tr>
-
-                        <tr>
-                            <td>003</td>
-                            <td>테스트용 입니다</td>
-                            <td>2022-10-11</td>
-                            <td>120</td>
-                        </tr>
+                        
+                        <% 	while(rs.next()){
+                    		qnanum = rs.getInt("qnanum");
+                    		title = rs.getString("TITLE");
+                    		writeday = rs.getString("writeday");
+                    		hitCount = rs.getInt("hitCount");
+         
+                    	%>
+	                    	<tr>
+	                            <td><%= qnanum %></td>
+	                            <td><a onclick="" ><%= title %></a></td>
+	                            <td><%= writeday %></td>
+	                            <td><%= hitCount %></td>
+	                        </tr>
+                    	<%}%>
                     </tbody>
                 </table>
             </div>
