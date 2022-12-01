@@ -1,3 +1,4 @@
+<%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "./process/connect.jsp" %>
@@ -25,9 +26,31 @@
 	String sql = "SELECT * FROM qna ORDER BY qnanum DESC;";
 	ptmt = conn.prepareStatement(sql);
 	rs = ptmt.executeQuery();
+	
 %>
+
+<script type="text/javascript">
+	function clickContent(qnanum) {
+		var form = document.createElement("form");
+        form.setAttribute("charset", "UTF-8");
+        form.setAttribute("method", "Post");  //Post 방식
+        form.setAttribute("action", "./content.jsp"); //요청 보낼 주소
+        
+        document.body.appendChild(form);
+       
+		var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "qnanum");
+        hiddenField.setAttribute("id", "qnanum");
+        hiddenField.setAttribute("value", qnanum);
+        form.appendChild(hiddenField);
+        
+        form.submit();
+	}
+</script>
                 
 <body>
+
     <div class="board_wrap">
         <div class="board">
             <div class="board_top">
@@ -84,8 +107,8 @@
          
                     	%>
 	                    	<tr>
-	                            <td><form id="content" action="./content.jsp" name="content" method="post"><%= qnanum %></form></td>
-	                            <td><a href="#" onclick="document.getElementById('content').submit();"><%= title %></a></td>
+	                            <td><%= qnanum %></td>
+	                            <td><a href='javascript:clickContent(<%= qnanum %>);'><%= title %></a></td>
 	                            <td><%= writeday %></td>
 	                            <td><%= hitCount %></td>
 	                        </tr>

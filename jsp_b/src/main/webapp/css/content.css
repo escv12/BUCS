@@ -33,12 +33,10 @@
     margin-top: 10px;
     width: 90%;
     height: 100px;
-
+    outline: none;
 }
 
-.content:onfocus{
-	border: 1px solid black;
-}
+
 
 .reply_wrap{
     width: 90%;
@@ -89,3 +87,9 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.button_wrap > a{
+	font-size: 20px;
+	line-height: 40px;
+}
+

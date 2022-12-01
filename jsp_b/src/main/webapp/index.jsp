@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,14 @@
 <title>BUCS</title>
 <link rel="stylesheet" href="./css/index.css">
 </head>
+<script type="text/javascript">
+	$(document).ready(function(){
+		  $('.slider').slider();
+		});
+</script>
+
+
+
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -76,11 +85,14 @@
               <li class="category_item">
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">최근 방문 게시글</a></p>
-                  <li class="sub_category_item"><a href="#">파이썬 강의 - 객체생성</a></li>
-                  <li class="sub_category_item"><a href="#">자바 강의 - 객체생성</a></li>
-                  <li class="sub_category_item"><a href="#">HTML 강의</a></li>
-                  <li class="sub_category_item"><a href="#">자바 강의 2</a></li>
-                  <li class="sub_category_item"><a href="#">HTML 강의 2</a></li>
+                  <% 
+                  
+                  ArrayList<String> list = (ArrayList<String>)session.getAttribute("visitedList");
+                 
+                  if(list != null){
+                 for(int i = 0; i < list.size(); i++) {%>
+                  <li class="sub_category_item"><%= list.get(i) %></li>
+                  <%}} %>
                 </ul>
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">내 정보</a></p>
@@ -103,6 +115,10 @@
       <!------------------------왼쪽 메뉴 끝-------------------------------->
       <!------------------------오른쪽 메뉴-------------------------------->
       <div class="content_right">
+
+      
+      
+      
         <div class="addiv">
           이미지 들어갈 곳
           <a href="#">
