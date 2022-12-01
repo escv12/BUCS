@@ -50,7 +50,7 @@
    			if(list.get(i).equals(title))
    				break;
    			if(i >= 4){
-   	   			list.add(i,title);
+   	   			list.set(i, title);
    	   	   		break;
    			}
    		}catch(Exception e){
