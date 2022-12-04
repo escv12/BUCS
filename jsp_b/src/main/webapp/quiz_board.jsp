@@ -16,11 +16,7 @@
 
 <body>
     <%@ include file="./header_footer/index_header.jsp" %>
-    
-    
-    
-    
-    
+
     <div class="quiz_board_wrap">
     	<div class="quiz_h_title">
     	<h3>BUCS 코딩 퀴즈</h3>
@@ -29,12 +25,9 @@
     
         <div class="quiz_board">
             <div class="board_top">
-                <div><a href="./board.jsp?catenum=0">퀴즈 문제</a></div>
-                <div><a href="./board.jsp?catenum=1">정답</a></div>
-                <%-- <% if(userid != null) {%>	
-		        <!-- 로그인전 화면 -->
-		          <div><a href="./write.jsp">글쓰기</a></div>
-		        <%}%> --%>
+                <div><a href="./quiz_board.jsp?catenum=0">퀴즈 문제</a></div>
+                <div><a href="./quiz_board.jsp?catenum=1">정답</a></div>
+                <div><a href="./quiz_write.jsp?isAnswer=1">정답 작성</a></div>
             </div>
             <div class="quiz_board_mid">
                 <div class="search_wrap">
@@ -48,6 +41,34 @@
                     <button class="search_btn">검색</button>
                 </div>
                 
+                <%
+                	request.setCharacterEncoding("UTF-8");
+                
+                	int catenum = 0;
+                	if(request.getParameter("catenum") != null)
+                		catenum = Integer.parseInt(request.getParameter("catenum"));
+                
+	            	PreparedStatement ptmt = null;
+	            	ResultSet rs = null;
+	            	String sql = null;
+	            	
+	            	
+	            	if(catenum == 0){
+	            		sql = "SELECT * FROM quiz where isAnswer=0 ORDER BY quizNum DESC;";
+	            	}else if(catenum == 1){ //공지
+	            		sql = "SELECT * FROM quiz where isAnswer=1 ORDER BY quizNum DESC;";
+	            	}
+
+	            	ptmt = conn.prepareStatement(sql);
+	            	rs = ptmt.executeQuery();
+	            	
+	            	String title = null;
+	            	String content = null;
+	            	String writeday = null;
+	            	int quizNum = 0;
+	            	
+                %>
+                
                 <table class="quiz_board_table">
                     <thead>
                         <tr>
@@ -57,11 +78,18 @@
                         </tr>
                     </thead>
                     <tbody id="quiz_contents">
+                    	<%while(rs.next()){
+		            		title = rs.getString("quizTitle");
+		            		content = rs.getString("quizContent");
+		            		writeday = rs.getString("writeday");
+		            		quizNum = rs.getInt("quizNum");
+	            		%>
                         <tr>
-                            <td id="quiz_number">9999</td>
-                            <td id="quiz_title"><a href="#">테스트용 입니다</a></td>
-                            <td id="quiz_date">2022-10-12</td>
+                            <td id="quiz_number"><%=quizNum %></td>
+                            <td id="quiz_title"><a href='./quiz_content.jsp?qnanum=<%= quizNum %>'><%=title %></a> <%if(rs.isFirst() && rs.getInt("isAnswer") == 0){ %><span class="proceeding">진행중</span><%} %></td>
+                            <td id="quiz_date"><%=writeday %></td>
                         </tr>
+                        <%} %>
                     </tbody>
                 </table>
 

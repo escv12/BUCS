@@ -26,7 +26,7 @@
         form1.appendChild(hiddenField);
         
         form1.submit();
-	}
+	};
 </script>
 <body>
 <%
@@ -69,28 +69,45 @@
 	          </div>
           <%} %>
         </div>
-
+        
+       <% 
+		   	PreparedStatement ptmt = null;
+		   	ResultSet rs = null;
+		   	
+		   	String sql = "SELECT * FROM post ORDER BY postnum DESC limit 9";
+		   	
+			ptmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+			rs = ptmt.executeQuery();
+			
+		   	int postNum = 0;
+		   	String postTitle = null;
+		   	int cateNum = 0;
+		%>  
+        
           <div class="study">
             <p id="study_title">강의</p>
             <ul class="category">
               <li class="category_item">
                 <ul class="sub_category">
-                  <p class="sub_category_title"><a href="#">파이썬</a></p>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 1</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 2</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 3</a></li>
-                </ul>
-                <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">자바</a></p>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 1</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 2</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 3</a></li>
+                  <%while(rs.next()){ %>
+                  <%if(rs.getInt("catenum") == 1){ %>
+                  <li class="sub_category_item"><a href="#"><%= rs.getString("POSTTITLE") %></a></li>
+                  <%}} rs.beforeFirst();%>
                 </ul>
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">HTML</a></p>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 1</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 2</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 3</a></li>
+                  <%while(rs.next()){ %>
+                  <%if(rs.getInt("catenum") == 2){ %>
+                  <li class="sub_category_item"><a href=""><%= rs.getString("POSTTITLE") %></a></li>
+                  <%}} rs.beforeFirst();%>
+                </ul>
+                <ul class="sub_category">
+                  <p class="sub_category_title"><a href="#">파이썬</a></p>
+                  <%while(rs.next()){ %>
+                  <%if(rs.getInt("catenum") == 3){ %>
+                  <li class="sub_category_item"><a href=""><%= rs.getString("POSTTITLE") %></a></li>
+                  <%}} %>
                 </ul>
               </li>
             </ul>
@@ -128,6 +145,7 @@
                   <p class="sub_category_title">관리자 기능</p>
                   <li class="sub_category_item"><a href="#">회원 관리</a></li>
                   <li class="sub_category_item"><a href="./postwrite.jsp">강의 작성</a></li>
+                  <li class="sub_category_item"><a href="./quiz_write.jsp">퀴즈 작성</a></li>
                 </ul>
               </li>
             </ul>
@@ -141,12 +159,9 @@
           <img src="./image/background.jpg">
         </div>
         
-        <% 
-	        request.setCharacterEncoding("UTF-8");
-		   	PreparedStatement ptmt = null;
-		   	ResultSet rs = null;
+        <%
 		   	
-		   	String sql = "SELECT * FROM qna where catenum=4 ORDER BY qnanum DESC limit 3";
+		   	sql = "SELECT * FROM qna where catenum=4 ORDER BY qnanum DESC limit 3";
 			ptmt = conn.prepareStatement(sql);
 			rs = ptmt.executeQuery();
 			
@@ -188,6 +203,21 @@
 		   	String qnaUserId = null;
 		   	int qnaHitCount = 0;
 		   	int qnaPostNum = 0;
+		   	
+		   	PreparedStatement qptmt = null;
+		   	ResultSet qrs = null;
+		   	
+		   	
+			String quiz = "SELECT * FROM quiz where isAnswer=0 ORDER BY quizNum DESC limit 2";
+			
+			qptmt = conn.prepareStatement(quiz);
+			qrs = qptmt.executeQuery();
+			
+	        String quizTitle = null;
+			String quizContent = null;
+			int quizPostNum = 0;
+			   	
+				
 		%>  
 
         <div class="contents_quiz">
@@ -255,106 +285,36 @@
               <div class="col_2">
                 <div class="widget-box">
                   <div class="widget_header"><h4>Quiz board</h4></div>
-                  <div class="widget_body">
-                    <div class="widget_main">
-                      <div class="row">
-                        <div class="col_3">
-                          <div class="img_wrap">
-                            <img src="image/character.png">
-                            <p class="user_id">유저 아이디</p>
-                          </div>
-  
+                  <% while(qrs.next()){ 
+                	quizTitle = qrs.getString("quizTitle");
+                	quizPostNum = qrs.getInt("quizNum");
+                	quizContent = qrs.getString("quizContent");
+      			%>
+                <div class="widget_body">
+                  <div class="widget_main">
+                    <div class="row">
+                      <div class="col_3">
+                        <div class="img_wrap">
+                          <img src="image/character.png">
+                          <p class="user_id">관리자</p>
                         </div>
-                        <div class="col_4">
-                          <div class="widget_text">
-                            <p class="widget_text_title">
-                              <a href="#">
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                              </a>
-                            </p>
-                            <p class="widget_text_content">
-                              <a href="#">
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                              </a>
-                            </p>
-                          </div>
+
+                      </div>
+                      <div class="col_4">
+                        <div class="widget_text">
+                          <p class="widget_text_title">
+                            <a href='./quiz_content.jsp?qnanum=<%= quizPostNum %>'><%= quizTitle %></a>
+                          </p>
+                          <p class="widget_text_content">
+                            <a href='./quiz_content.jsp?qnanum=<%= quizPostNum %>'><%= quizContent %></a>
+                          </p>
                         </div>
-  
-                      </div>
-                    </div>
-                    <div class="widget_info">
-                      <div class="info_wrap">
-                        <span>조회 </span>
-                        <span class="pop">12</span>
-                      </div>
-                      <div class="info_wrap">
-                        <span>댓글 </span>
-                        <span class="talk">15</span>
-                      </div>
-                      <div class="info_wrap">
-                        <span>좋아요 </span>
-                        <span class="good">16</span>
                       </div>
                     </div>
                   </div>
-                  <div class="widget_body">
-                    <div class="widget_main">
-                      <div class="row">
-                        <div class="col_3">
-                          <div class="img_wrap">
-                            <img src="image/character.png">
-                            <p class="user_id">유저 아이디</p>
-                          </div>
-  
-                        </div>
-                        <div class="col_4">
-                          <div class="widget_text">
-                            <p class="widget_text_title">
-                              <a href="#">
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                                이곳은 퀴즈입니다
-                              </a>
-                            </p>
-                            <p class="widget_text_content">
-                              <a href="#">
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                                퀴즈의 내용입니다
-                              </a>
-                            </p>
-                          </div>
-                        </div>
-  
-                      </div>
-                    </div>
-                    <div class="widget_info">
-                      <div class="info_wrap">
-                        <span>조회 </span>
-                        <span class="pop">12</span>
-                      </div>
-                      <div class="info_wrap">
-                        <span>댓글 </span>
-                        <span class="talk">15</span>
-                      </div>
-                      <div class="info_wrap">
-                        <span>좋아요 </span>
-                        <span class="good">16</span>
-                      </div>
-                    </div>
-                  </div>
+                </div>  
+                <%} %>
                 </div>
-
-
-
             </div>
             </div>
           </div>

@@ -28,6 +28,18 @@
     width: 300px;
 }
 
+.proceeding{
+	background-color: orange;
+	border: 1px solid orange;
+	border-radius: 5px;
+	width :30px;
+	height:20px;
+	color:white;
+	font-size: 10px;
+	padding:3px;
+	margin-left: 5px;
+	
+}
 
 .quiz_board_mid{
     display: block;
