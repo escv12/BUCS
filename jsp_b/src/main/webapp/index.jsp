@@ -118,12 +118,6 @@
                   <li class="sub_category_item"><a href="./board.jsp?catenum=5">나의 질문글</a></li>
                   <li class="sub_category_item"><a href="./process/leave_process.jsp">회원 탈퇴</a></li>
                 </ul>
-                <ul class="sub_category">
-                  <p class="sub_category_title"><a href="#">메인 카테고리 3</a></p>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 1</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 2</a></li>
-                  <li class="sub_category_item"><a href="#">서브 카테고리 3</a></li>
-                </ul>
               </li>
             </ul>
           </div>

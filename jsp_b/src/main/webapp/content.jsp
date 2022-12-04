@@ -5,13 +5,7 @@
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>write</title>
-    <link rel="stylesheet" href="./css/content.css">
-</head>
+
 
 <% 
 	request.setCharacterEncoding("UTF-8");
@@ -22,8 +16,6 @@
 	String content = null;
 	String userid = null;
 	ArrayList<String> list = (ArrayList<String>)session.getAttribute("visitedList");
-	
-	
 	
 	PreparedStatement ptmt = null;
 	ResultSet rs = null;
@@ -66,6 +58,14 @@
 	ptmt.executeUpdate();
     
 %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="./css/content.css">
+</head>
 
 
 <body>
