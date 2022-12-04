@@ -104,9 +104,7 @@
               <li class="category_item">
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">최근 방문 게시글</a></p>
-                  <% 
-                  
-                  ArrayList<String> list = (ArrayList<String>)session.getAttribute("visitedList");
+                  <%  ArrayList<String> list = (ArrayList<String>)session.getAttribute("visitedList");
                  
                   if(list != null){
                  for(int i = 0; i < list.size(); i++) {%>

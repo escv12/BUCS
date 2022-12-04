@@ -1,99 +1,74 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.io.Console"%>
+<%@page import="javax.swing.text.Document"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ include file = "./process/connect.jsp" %>
 <!DOCTYPE html>
-<html>
+
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>quiz_board</title>
-    <link rel="stylesheet" href="quiz_board.css">
-    <link rel="stylesheet" href="loginPage.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $("#header").load("login_header.html");
-    });
-    </script>
+    <title>Й╡▄Л▀°М▄░ - М─╢Л╕┬ Й╡▄Л▀°М▄░</title>
+    <link rel="stylesheet" href="./css/quiz_board.css">
 </head>
+
+
 <body>
-    <div id="header"></div>
+    <%@ include file="./header_footer/index_header.jsp" %>
+    
+    
+    
+    
+    
     <div class="quiz_board_wrap">
+    	<div class="quiz_h_title">
+    	<h3>BUCS Л╫■К■╘ М─╢Л╕┬</h3>
+    	<p>М■└К║°Й╥╦К·≤К╟█ К╛╦Л═°К╔╪ М▓─ЙЁ═ Л└°К║° К▀╣Л²└ ЙЁ╣Л°═М∙═ Л┬≤ Л·┬Л┼╣К▀┬К▀╓</p>
+	    </div>
+    
         <div class="quiz_board">
-            <div class="quiz_board_top">
-                <div id="quiz">╧╝а╕</div>
-                <div id="answer">а╓╢Д</div>
+            <div class="board_top">
+                <div><a href="./board.jsp?catenum=0">М─╢Л╕┬ К╛╦Л═°</a></div>
+                <div><a href="./board.jsp?catenum=1">Л═∙К▀╣</a></div>
+                <%-- <% if(userid != null) {%>	
+		        <!-- К║°Й╥╦Л²╦Л═└ М≥■К╘╢ -->
+		          <div><a href="./write.jsp">Й╦─Л⌠╟Й╦╟</a></div>
+		        <%}%> --%>
             </div>
             <div class="quiz_board_mid">
                 <div class="search_wrap">
                     <select class="search_method">
-                        <option value="1">а╕╦Я+Ё╩©К</option>
-                        <option value="2">а╕╦Я</option>
-                        <option value="3">Ё╩©К</option>
-                        <option value="4">╧Ьхё</option>
+                        <option value="1">Л═°К╙╘+К┌╢Л ╘</option>
+                        <option value="2">Л═°К╙╘</option>
+                        <option value="3">К┌╢Л ╘</option>
+                        <option value="4">К╡┬М≤╦</option>
                     </select>
-                    <div class="search"><input placeholder="╟к╩Ж╬Н╦╕ ют╥бгьаж╪╪©Д"></div>
-                    <button class="search_btn">╟к╩Ж</button>
+                    <div class="search"><input placeholder="Й╡─Л┐┴Л√╢К╔╪ Л·┘К═╔М∙╢Лё╪Л└╦Л ■"></div>
+                    <button class="search_btn">Й╡─Л┐┴</button>
                 </div>
                 
                 <table class="quiz_board_table">
                     <thead>
                         <tr>
-                            <th id="number">╧Ьхё</th>
-                            <th id="title">а╕╦Я</th>
-                            <th id="date">╣Н╥оюоюз</th>
-                            <th id="count">а╤х╦╪Ж</th>
+                            <th id="number">К╡┬М≤╦</th>
+                            <th id="title">Л═°К╙╘</th>
+                            <th id="date">К⌠╠К║²Л²╪Л·░</th>
                         </tr>
                     </thead>
                     <tbody id="quiz_contents">
                         <tr>
-                            <td>9999</td>
-                            <td>ев╫╨ф╝©К ют╢о╢ы</td>
-                            <td>2022-10-12</td>
-                            <td>1520</td>
+                            <td id="quiz_number">9999</td>
+                            <td id="quiz_title"><a href="#">М┘▄Л┼╓М┼╦Л ╘ Л·┘К▀┬К▀╓</a></td>
+                            <td id="quiz_date">2022-10-12</td>
                         </tr>
-
-                        <tr>
-                            <td>002</td>
-                            <td>ев╫╨ф╝©К ют╢о╢ы</td>
-                            <td>2022-10-10</td>
-                            <td>152</td>
-                        </tr>
-
-                        <tr>
-                            <td>003</td>
-                            <td>ев╫╨ф╝©К ют╢о╢ы</td>
-                            <td>2022-10-11</td>
-                            <td>120</td>
-                        </tr>
-
-                        <tr>
-                            <td>004</td>
-                            <td>ев╫╨ф╝©К ют╢о╢ы</td>
-                            <td>2022-10-11</td>
-                            <td>99999999</td>
-                        </tr>
-
-                        <tr>
-                            <td>005</td>
-                            <td>ев╫╨ф╝©К ют╢о╢ы</td>
-                            <td>2022-10-11</td>
-                            <td>120</td>
-                        </tr>
-                        
                     </tbody>
                 </table>
 
             </div>
             <div class="quiz_board_bot">
                 <ul id="change_page">
-                    <li><a href="#"></a></li>
                     <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">>></a></li>
                 </ul>
             </div>
         </div>

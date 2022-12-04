@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file = "../process/connect.jsp" %>
+<%@ page import="java.jstl.core" %>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -78,9 +79,7 @@
             <p id="title">제목  |  <span class="content_title"><%= title %></span></p>
         </div>
         <!-- 내용 -->
-        <textarea class="content" readonly="readonly">
-        <%= content %>
-        </textarea>
+		<pre class="content"><c:out value="${content}" /></pre>
         <!-- 댓글 -->
         <table class="reply_wrap">
             <tbody id="content_reply">

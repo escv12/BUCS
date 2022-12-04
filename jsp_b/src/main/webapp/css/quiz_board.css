@@ -7,7 +7,10 @@
     align-items: center;
     align-content: center;
     align-self: center;
+    margin-top:100px;
 }
+
+
 
 .quiz_board {
     margin-left: auto;
@@ -15,44 +18,16 @@
     text-align: center;
     border: 1px solid #888;
     padding: 40px;
-    width: 80%;
+    width: 1000px;
     margin-bottom: 20px;
     border-radius: 6px;
 }
 
-.quiz_board_top{
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
-.quiz_board_top > div{
-    display: table-cell;
-    border: 1px solid black;
-    height: 30px;
-    line-height: 30px;
-    font-size: 18px;
-}
-
-.quiz_board_top > div:hover{
-    cursor: pointer;
-}
 
 #quiz, #answer{
     width: 300px;
 }
 
-
-.quiz_board_top #quiz:hover{
-    background-color: #48BAE4;
-    color: white;
-}
-
-.quiz_board_top #answer:hover{
-    background-color: #48BAE4;
-    color: white;
-}
 
 .quiz_board_mid{
     display: block;
@@ -137,40 +112,98 @@
     text-align: left;
     line-height: 1;
     border-top: 1px solid black;
-    border-left: 1px solid black;
     margin : 20px 10px;
 }
 
 #number{
-    width: 50px;
+    width: 5%;
+}
+
+#title{
+    width: 70%;
 }
 
 #date{
-    width: 100px;
+    width: 10%;
 }
 
-#count{
-    width: 80px;
+.quiz_board_wrap > .quiz_h_title{
+	width:1000px;
+	margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    margin-top:100px;
+}
+
+.quiz_board_wrap > .quiz_h_title > h3{
+	color: #48BAE4;
+	font-weight: bold;
+	font-size: 40px;
+	line-height: 40px;
+	margin-bottom: 15px;
+}
+
+.quiz_board_wrap > .quiz_h_title > p{
+	font-size: 20px;
+	line-height: 20px;
+	padding-bottom: 20px;
+	margin-bottom: 20px;
+	border-bottom: 2px solid #48BAE4;
+}
+
+#quiz_number, #quiz_date{
+	text-align: center;
 }
 
 .quiz_board_table > thead > tr > th {
     padding: 10px;
     font-weight: bold;
     vertical-align: top;
-    border-right: 1px solid black;
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    border-left: 1px solid black;
+   	text-align: center;
+   	color: #48BAE4;
+   	height:30px;
+   	line-height: 30px;
 }
 
 .quiz_board_table > tbody > tr > td {
     padding: 10px;
     vertical-align: top;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #ccc;
+    height:30px;
+   	line-height: 30px;
 }
 
-#quiz_contents tr:nth-child(odd){
-    background-color: #eee;
+
+.board_top{
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    text-align: left;
 }
 
+.board_top > div{
+    display: inline;
+
+}
+
+.board_top > div > a{
+    padding: 0 20px 5px 20px;
+}
+
+
+.board_top > div > a:hover{
+    cursor: pointer;
+    border-bottom: 2px solid #48BAE4;
+    color: #48BAE4;
+
+}
+
+.board_top > div+div{
+    padding-left: 30px;
+
+}
