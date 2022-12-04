@@ -125,10 +125,9 @@
             <ul class="category">
               <li class="category_item">
                 <ul class="sub_category">
-                  <p class="sub_category_title"><a href="#">관리자 기능</a></p>
+                  <p class="sub_category_title">관리자 기능</p>
                   <li class="sub_category_item"><a href="#">회원 관리</a></li>
                   <li class="sub_category_item"><a href="./postwrite.jsp">강의 작성</a></li>
-                  <li class="sub_category_item"><a href="#">정보 수정</a></li>
                 </ul>
               </li>
             </ul>

@@ -7,27 +7,35 @@
 
 
 <%
+	request.setCharacterEncoding("UTF-8");
 	Date nowTime = new Date();
-	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+	
 
-	String POSTTITLE = null;
-	String category = null;
-	String POSTcontent = null;
-	String ADMINID = null;
-	ResultSet rs = null;
-	String sql;
-	boolean isAdmin = (boolean) session.getAttribute("isAdmin");
+	String POSTTITLE = (String) request.getParameter("title");
+	int category = 0;
+	
+	if(request.getParameter("category") == null)
+		category = 0;
+	else
+		category = Integer.parseInt(request.getParameter("category"));	
+	
+	String POSTcontent = (String) request.getParameter("content");
+	
+	boolean isAdmin = false;
 	int latestNum = 0;
 	
-	request.setCharacterEncoding("UTF-8");
+	if(session.getAttribute("isAdmin") == null)
+		isAdmin = false;
+	else
+		isAdmin = (boolean) session.getAttribute("isAdmin");
+
+	
 	PreparedStatement ptmt = null;
+	ResultSet rs = null;
+	String sql;
 	
-	POSTTITLE = (String) request.getParameter("title");
-	category = (String) request.getParameter("category");
-	POSTcontent = (String) request.getParameter("content");
-	ADMINID = (String) session.getAttribute("userid");
-	
-	if(ADMINID == null || !isAdmin){
+	if(!isAdmin){
 		PrintWriter script = response.getWriter();
 	    script.println("<script>alert('관리자 로그인 후 글쓰기가 가능합니다'); location.href ='../board.jsp'</script>");
 		script.close();
@@ -46,14 +54,14 @@
 			out.println(String.format("%s %d",e, latestNum));
 		}
 		
-		sql = "INSERT INTO POST(postnum,POSTcontent,POSTTITLE,writeday,ADMINID) VALUES(?,?,?,?,?);";
+		sql = "INSERT INTO post(postnum,POSTcontent,POSTTITLE,writeday,catenum) VALUES(?,?,?,?,?);";
 		ptmt = conn.prepareStatement(sql);
 		
 		ptmt.setInt(1, latestNum + 1);
 		ptmt.setString(2, POSTcontent);
 		ptmt.setString(3, POSTTITLE);
 		ptmt.setString(4, sf.format(nowTime));
-		ptmt.setString(5, ADMINID);
+		ptmt.setInt(5, category);
 		
 		ptmt.executeUpdate();
 		
