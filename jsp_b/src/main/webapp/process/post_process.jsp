@@ -16,6 +16,7 @@
 	String ADMINID = null;
 	ResultSet rs = null;
 	String sql;
+	boolean isAdmin = (boolean) session.getAttribute("isAdmin");
 	int latestNum = 0;
 	
 	request.setCharacterEncoding("UTF-8");
@@ -26,9 +27,9 @@
 	POSTcontent = (String) request.getParameter("content");
 	ADMINID = (String) session.getAttribute("userid");
 	
-	if(ADMINID == null){
+	if(ADMINID == null || !isAdmin){
 		PrintWriter script = response.getWriter();
-	    script.println("<script>alert('로그인 후 글쓰기가 가능합니다'); location.href ='../board.jsp'</script>");
+	    script.println("<script>alert('관리자 로그인 후 글쓰기가 가능합니다'); location.href ='../board.jsp'</script>");
 		script.close();
 		return;
 	}

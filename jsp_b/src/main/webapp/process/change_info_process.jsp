@@ -43,7 +43,7 @@ try{
 	}
 
 	
-	String  sql = "select * from user where userpwd ='" + pw + "' limit 1;";
+	String sql = "select * from user where userpwd ='" + pw + "' limit 1;";
 	ptmt = conn.prepareStatement(sql);
 	rs = ptmt.executeQuery();
 	

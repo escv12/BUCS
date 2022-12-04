@@ -21,6 +21,7 @@
 	int qnanum = 0;
 	String title = null;
 	String writeday = null;
+	String writer = null;
 	int hitCount = 0;
 	
 	String sql = "SELECT * FROM qna ORDER BY qnanum DESC;";
@@ -82,6 +83,7 @@
                             <th id="title">제목</th>
                             <th id="date">등록일자</th>
                             <th id="count">조회수</th>
+                            <th id="writer">작성자</th>
                         </tr>
                     </thead>
                     <tbody id="board_contents">
@@ -104,6 +106,7 @@
                     		title = rs.getString("TITLE");
                     		writeday = rs.getString("writeday");
                     		hitCount = rs.getInt("hitCount");
+                    		writer = rs.getString("userid");
          
                     	%>
 	                    	<tr>
@@ -111,6 +114,8 @@
 	                            <td><a href='javascript:clickContent(<%= qnanum %>);'><%= title %></a></td>
 	                            <td><%= writeday %></td>
 	                            <td><%= hitCount %></td>
+	                            <td><%= writer %></td>
+	                            
 	                        </tr>
                     	<%}%>
                     </tbody>

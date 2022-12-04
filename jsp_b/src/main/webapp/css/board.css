@@ -120,6 +120,10 @@ a{
     width: 80px;
 }
 
+#writer{
+	width: 100px;
+}
+
 .board_table > thead > tr > th {
     padding: 10px;
     font-weight: bold;

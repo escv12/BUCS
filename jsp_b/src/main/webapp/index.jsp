@@ -8,19 +8,18 @@
 <title>BUCS</title>
 <link rel="stylesheet" href="./css/index.css">
 </head>
-<script type="text/javascript">
-	$(document).ready(function(){
-		  $('.slider').slider();
-		});
-</script>
-
-
-
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String userid = (String)session.getAttribute("userid");
 	String email = (String)session.getAttribute("EMAIL");
+	
+	boolean isAdmin;
+	if(session.getAttribute("isAdmin") == null){
+		isAdmin = false;
+	}else{
+		isAdmin = (boolean) session.getAttribute("isAdmin");
+	}
 %>  
 
 
@@ -77,7 +76,7 @@
             </ul>
           </div>
           
-          <% if(userid != null) {%>	
+          <% if(userid != null && !isAdmin) {%>	
 
           <div class="study">
             <p id="study_title">회원</p>
@@ -97,8 +96,7 @@
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">내 정보</a></p>
                   <li class="sub_category_item"><a href="#">나의 질문글</a></li>
-                  <li class="sub_category_item"><a href="#">회원 정보 수정</a></li>
-                  <li class="sub_category_item"><a href="#">회원 탈퇴</a></li>
+                  <li class="sub_category_item"><a href="./process/leave_process.jsp">회원 탈퇴</a></li>
                 </ul>
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">메인 카테고리 3</a></p>
@@ -109,7 +107,20 @@
               </li>
             </ul>
           </div>
-          
+          <%} else if (userid != null && isAdmin){ %>
+          <div class="study">
+            <p id="study_title">관리자</p>
+            <ul class="category">
+              <li class="category_item">
+                <ul class="sub_category">
+                  <p class="sub_category_title"><a href="#">관리자 기능</a></p>
+                  <li class="sub_category_item"><a href="#">회원 관리</a></li>
+                  <li class="sub_category_item"><a href="#">강의 작성</a></li>
+                  <li class="sub_category_item"><a href="#">정보 수정</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
           <%} %>
       </div>
       <!------------------------왼쪽 메뉴 끝-------------------------------->
@@ -122,7 +133,7 @@
         <div class="addiv">
           이미지 들어갈 곳
           <a href="#">
-            <img>
+            <img src="./image/background.jpg">
           </a>
         </div>
 
@@ -141,7 +152,7 @@
             </li>
             <li class="category_note">
               <span class="note">[공지]</span>
-              <a href="#"></a>여러가지 공지를 작성할 수 있습니다</a>
+              <a href="#">여러가지 공지를 작성할 수 있습니다</a>
               <span class="date">2022-11-07</span>
             </li>
           </ul>

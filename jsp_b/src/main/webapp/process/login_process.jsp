@@ -11,7 +11,20 @@ try{
 	String id = request.getParameter("userID");
 	String pw = request.getParameter("userPWD");
 	
-	String  sql = "select * from user";
+	String sql = "select * from admin";
+	ptmt = conn.prepareStatement(sql);
+	rs = ptmt.executeQuery();
+	
+	while(rs.next()){
+		if(id.equals(rs.getString("ADMINID")) && pw.equals(rs.getString("ADMINPWD"))){
+			session.setAttribute("userid", rs.getString("ADMINID"));
+			session.setAttribute("isAdmin", true);
+			response.sendRedirect("../index.jsp");
+			return;
+		}
+	}
+
+	sql = "select * from user";
 	ptmt = conn.prepareStatement(sql);
 	rs = ptmt.executeQuery();
 	
@@ -25,7 +38,8 @@ try{
 			}
 			    
 			session.setAttribute("userid", rs.getString("userid"));
-			session.setAttribute("EMAIL", rs.getString("EMAIL"));	
+			session.setAttribute("EMAIL", rs.getString("EMAIL"));
+			session.setAttribute("isAdmin", false);
 			response.sendRedirect("../index.jsp");
 			break;
 		}
