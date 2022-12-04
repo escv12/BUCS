@@ -42,6 +42,8 @@
 		sql = "SELECT * FROM qna where catenum=2 ORDER BY qnanum DESC;";
 	}else if(num == 3){ //건의
 		sql = "SELECT * FROM qna where catenum=3 ORDER BY qnanum DESC;";
+	}else if(num == 5){ //나의 질문글
+		sql = "SELECT * FROM qna where catenum=2 AND userid='" + userid + "' ORDER BY qnanum DESC;";
 	}
 
 	ptmt = conn.prepareStatement(sql);
@@ -108,21 +110,6 @@
                         </tr>
                     </thead>
                     <tbody id="board_contents">
-                        <tr class="info">
-                            <td>9999</td>
-                            <td>얘는 공지 입니다</td>
-                            <td>2022-10-12</td>
-                            <td>1520</td>
-                        </tr>
-                        
-                        <tr class="info">
-                            <td>9999</td>
-                            <td>얘는 공지 입니다</td>
-                            <td>2022-10-12</td>
-                            <td>1520</td>
-                            <td>admin</td>
-                        </tr>
-                        
                         <% 
                         while(rs.next()){
                     		qnanum = rs.getInt("qnanum");
@@ -132,6 +119,15 @@
                     		writer = rs.getString("userid");
          
                     	%>
+                    	<%if(rs.getInt("catenum") == 4){ %>
+                    		<tr class="info">
+	                            <td><%= qnanum %></td>
+	                            <td><a href='javascript:clickContent(<%= qnanum %>);'><%= title %></a></td>
+	                            <td><%= writeday %></td>
+	                            <td><%= hitCount %></td>
+	                            <td>관리자</td>
+                        	</tr>
+                        <%}else {%>
 	                    	<tr>
 	                            <td><%= qnanum %></td>
 	                            <td><a href='javascript:clickContent(<%= qnanum %>);'><%= title %></a></td>
@@ -139,7 +135,7 @@
 	                            <td><%= hitCount %></td>
 	                            <td><%= writer %></td>
 	                        </tr>
-                    	<%}%>
+                    	<%}}%>
                     </tbody>
                 </table>
             </div>

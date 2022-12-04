@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="./process/connect.jsp" %>
 <%@ page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -8,6 +9,25 @@
 <title>BUCS</title>
 <link rel="stylesheet" href="./css/index.css">
 </head>
+<script type="text/javascript">
+	function clickContent(qnanum) {
+		var form1 = document.createElement("form");
+        form1.setAttribute("charset", "UTF-8");
+        form1.setAttribute("method", "Post");  //Post 방식
+        form1.setAttribute("action", "./content.jsp"); //요청 보낼 주소
+        
+        document.body.appendChild(form1);
+       
+		var hiddenField = document.createElement("input");
+        hiddenField.setAttribute("type", "hidden");
+        hiddenField.setAttribute("name", "qnanum");
+        hiddenField.setAttribute("id", "qnanum");
+        hiddenField.setAttribute("value", qnanum);
+        form1.appendChild(hiddenField);
+        
+        form1.submit();
+	}
+</script>
 <body>
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -95,7 +115,7 @@
                 </ul>
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">내 정보</a></p>
-                  <li class="sub_category_item"><a href="#">나의 질문글</a></li>
+                  <li class="sub_category_item"><a href="./board.jsp?catenum=5">나의 질문글</a></li>
                   <li class="sub_category_item"><a href="./process/leave_process.jsp">회원 탈퇴</a></li>
                 </ul>
                 <ul class="sub_category">
@@ -133,30 +153,58 @@
         <div class="addiv">
           이미지 들어갈 곳
           <a href="#">
-            <img">
+            <img>
           </a>
         </div>
+        
+        <% 
+	        request.setCharacterEncoding("UTF-8");
+		   	PreparedStatement ptmt = null;
+		   	ResultSet rs = null;
+		   	
+		   	String sql = "SELECT * FROM qna where catenum=4 ORDER BY qnanum DESC limit 3";
+			ptmt = conn.prepareStatement(sql);
+			rs = ptmt.executeQuery();
+			
+		   	String title = null;
+		   	String writeDay = null;
+		   	int qnaNum = 0;
+		%>  
 
         <div class="study">
           <p id="study_title">공지사항</p>
           <ul class="category">
-            <li class="category_note">
-              <span class="note">[공지]</span>
-              <a href="#">이곳은 공지사항입니다 여러가지 공지를 작성할 수 있습니다</a>
-              <span class="date">2022-11-07</span>
-            </li>
-            <li class="category_note">
-              <span class="note">[공지]</span>
-              <a href="#">이곳은 공지사항입니다</a>
-              <span class="date">2022-11-07</span>
-            </li>
-            <li class="category_note">
-              <span class="note">[공지]</span>
-              <a href="#">여러가지 공지를 작성할 수 있습니다</a>
-              <span class="date">2022-11-07</span>
-            </li>
+             <% while(rs.next()){ 
+      			qnaNum = rs.getInt("qnanum");
+      			title = rs.getString("TITLE");
+      			writeDay = rs.getString("writeday");
+      			%>
+      		
+	      		<li class="category_note">
+	              <span class="note">[공지]</span>
+	              <a href='javascript:clickContent(<%= qnaNum %>);'><%= title %></a>
+	              <span class="date"><%= writeDay %></span>
+	            </li>
+      
+				<% } %>
           </ul>
         </div>
+        
+        
+         <% 
+	        request.setCharacterEncoding("UTF-8");
+		   	
+		   	String qna = "SELECT * FROM qna where catenum=2 ORDER BY qnanum DESC limit 2";
+		   	
+			ptmt = conn.prepareStatement(qna);
+			rs = ptmt.executeQuery();
+			
+		   	String qnaTitle = null;
+		   	String qnaContent = null;
+		   	String qnaUserId = null;
+		   	int qnaHitCount = 0;
+		   	int qnaPostNum = 0;
+		%>  
 
         <div class="contents_quiz">
           <h3>게시판</h3>
@@ -164,33 +212,41 @@
             <div class="col_1">
               <div class="widget-box">
                 <div class="widget_header"><h4>Question board</h4></div>
+                <% while(rs.next()){ 
+                	qnaTitle = rs.getString("TITLE");
+                	qnaUserId = rs.getString("userid");
+                	qnaHitCount = rs.getInt("hitCount");
+                	qnaPostNum = rs.getInt("qnanum");
+                	qnaContent = rs.getString("content");
+                	
+                	String comment = "SELECT * FROM comment where postNo="+qnaPostNum+";";
+                	
+                	int amount = 0;
+                			
+                	Statement commentP = conn.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                	ResultSet commentrs = commentP.executeQuery(comment);
+                	
+                	commentrs.last();
+                	amount = commentrs.getRow(); 
+                	commentrs.beforeFirst();
+      			%>
                 <div class="widget_body">
                   <div class="widget_main">
                     <div class="row">
                       <div class="col_3">
                         <div class="img_wrap">
                           <img src="image/character.png">
-                          <p class="user_id">유저 아이디</p>
+                          <p class="user_id"><%= qnaUserId %></p>
                         </div>
 
                       </div>
                       <div class="col_4">
                         <div class="widget_text">
                           <p class="widget_text_title">
-                            <a href="#">
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                            </a>
+                            <a href='javascript:clickContent(<%= qnaPostNum %>);'><%= qnaTitle %></a>
                           </p>
                           <p class="widget_text_content">
-                            <a href="#">
-                              질문의 내용입니다
-                              질문의 내용입니다
-                              질문의 내용입니다
-                              질문의 내용입니다
-                            </a>
+                            <a href='javascript:clickContent(<%= qnaPostNum %>);'><%= qnaContent %></a>
                           </p>
                         </div>
                       </div>
@@ -199,70 +255,18 @@
                   </div>
                   <div class="widget_info">
                     <div class="info_wrap">
-                      <span>조회 </span>
-                      <span class="pop">12</span>
+                      <span>조회수</span>
+                      <span class="pop"><%= qnaHitCount %></span>
                     </div>
                     <div class="info_wrap">
                       <span>댓글 </span>
-                      <span class="talk">15</span>
-                    </div>
-                    <div class="info_wrap">
-                      <span>좋아요 </span>
-                      <span class="good">16</span>
+                      <span class="talk"><%= amount %></span>
                     </div>
                   </div>
-                </div>
-                <div class="widget_body">
-                  <div class="widget_main">
-                    <div class="row">
-                      <div class="col_3">
-                        <div class="img_wrap">
-                          <img src="image/character.png">
-                          <p class="user_id">유저 아이디</p>
-                        </div>
-
-                      </div>
-                      <div class="col_4">
-                        <div class="widget_text">
-                          <p class="widget_text_title">
-                            <a href="#">
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                              이곳은 질문입니다
-                            </a>
-                          </p>
-                          <p class="widget_text_content">
-                            <a href="#">
-                              질문의 내용입니다
-                              질문의 내용입니다
-                              질문의 내용입니다
-                              질문의 내용입니다
-                            </a>
-                          </p>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                  <div class="widget_info">
-                    <div class="info_wrap">
-                      <span>조회 </span>
-                      <span class="pop">12</span>
-                    </div>
-                    <div class="info_wrap">
-                      <span>댓글 </span>
-                      <span class="talk">15</span>
-                    </div>
-                    <div class="info_wrap">
-                      <span>좋아요 </span>
-                      <span class="good">16</span>
-                    </div>
-                  </div>
-                </div>
-                </div>
+                </div>  
                 
-              
+                <%} %>   
+                </div>
               </div>
               <div class="col_2">
                 <div class="widget-box">

@@ -15,6 +15,10 @@
     
 }
 
+#date{
+	margin-top:100px;
+}
+
 #date, #title{
     border: 1px solid black;
     width: 90%;
@@ -32,8 +36,9 @@
     max-width: 1160px;
     margin-top: 10px;
     width: 90%;
-    height: 100px;
+    height:300px;
     outline: none;
+    resize:none;
 }
 
 
@@ -46,6 +51,7 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+   	
 }
 
 .alert{
@@ -62,12 +68,20 @@
 .reply_wrap > tbody > tr > td {
     padding: 10px;
     vertical-align: top;
-    border: 1px solid black;
+    border-bottom: 1px solid #ddd;
     
 }
 
 .content_reply tr:nth-child(odd){
     background-color: #888;
+}
+
+.comment{
+	border: none;
+	resize:none;
+	float:left;
+	width:88%;
+	outline: none;
 }
 
 
@@ -79,6 +93,10 @@
     font-size: 16px;
     border: 1px solid black;
     width: 120px;
+}
+
+.index:focus{
+	cursor: pointer;
 }
 
 .button_wrap{
@@ -93,3 +111,16 @@
 	line-height: 40px;
 }
 
+
+#userID{
+    width: 10%;
+}
+
+#comment{
+    width: 70%;
+}
+
+
+#writeDay{
+	width: 20%;
+}

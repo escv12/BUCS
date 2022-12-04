@@ -84,24 +84,38 @@
         <!-- 댓글 -->
         <table class="reply_wrap">
             <tbody id="content_reply">
+            	<% 
+            	sql = "SELECT * FROM comment where postNo='" + qnanum + "' ORDER BY commentNo DESC;";
+            	ptmt = conn.prepareStatement(sql);
+            	rs = ptmt.executeQuery();
+            	
+            	while(rs.next()){
+                	String comment = rs.getString("content");
+                	String userID = rs.getString("userID");
+                	String writeDay = rs.getString("writeDay");
+                %>
+            
                 <tr class="reply">
-                    <td>잘모루겠오</td>
-                </tr>
-                <tr class="reply">
-                    <td>zzzz</td>
-                </tr>
-                <tr class="reply">
-                    <td>sss</td>
-                </tr>
-                <tr class="reply">
-                    <td>ddd</td>
+                    <td id="userID"><%= userID %></td>
+                    <td id="comment"><%= comment %></td>
+                    <td id="writeDay">작성일 <%= writeDay %></td>
                 </tr>
                 
-                <%if(session.getAttribute("userid") == null) {%>
+                <% } %>
+                
                 <tr class="alert">
+                <%if(session.getAttribute("userid") == null) {%>
                     <td>질문을 작성하려면 <a class="login_link" href="./login.jsp">로그인</a> 하세요</td>
+                <%} else {%>
+                <td colspan="4">
+	                <form action="./process/writeComment_process.jsp" method="post">
+	                	<input type="hidden" name="postNum" value=<%= qnanum %>>
+				    	<textarea maxlength='200' name="comment" class="comment"></textarea>
+				    	<button class="index" id="write">글쓰기</button>
+			        </form>
+		        </td>
+                <% } %>
                 </tr>
-                <%} %>
             </tbody>
         </table>
         <!-- 버튼 -->
