@@ -105,12 +105,12 @@
                 
                 <tr class="alert">
                 <%if(session.getAttribute("userid") == null) {%>
-                    <td>질문을 작성하려면 <a class="login_link" href="./login.jsp">로그인</a> 하세요</td>
+                    <td colspan="4">댓글을 작성하려면 <a class="login_link" href="./login.jsp">로그인</a> 하세요</td>
                 <%} else {%>
                 <td colspan="4">
 	                <form action="./process/writeComment_process.jsp" method="post">
 	                	<input type="hidden" name="postNum" value=<%= qnanum %>>
-				    	<textarea maxlength='200' name="comment" class="comment"></textarea>
+				    	<textarea maxlength='200' name="comment" class="comment" placeholder="댓글을 입력해주세요"></textarea>
 				    	<button class="index" id="write">글쓰기</button>
 			        </form>
 		        </td>

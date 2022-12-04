@@ -5,7 +5,12 @@ a{
 	color:black;
 }
 
-
+header{
+	width:100% !important;
+	margin-top:0px !important;
+	padding-top:0px !important;
+	height: auto !important;
+}
 
 .board_wrap{
     margin-left: auto;
@@ -106,20 +111,14 @@ a{
     margin : 20px 10px;
 }
 
-#number{
-    width: 50px;
+#img{
+	width: 50px;
 }
 
-#date{
-    width: 130px;
-}
 
-#count{
-    width: 80px;
-}
-
-#writer{
-	width: 100px;
+.eye{
+	width: 14px;
+	line-height: 14px;
 }
 
 .board_table > thead > tr > th {
@@ -150,3 +149,31 @@ a{
 #change_page li+li{
     padding-left: 20px;
 }
+
+.categoryIcon{
+	padding:5px;
+	width:30px;
+	background-color: #eee;
+	border:1px solid #ddd;
+	border-radius: 10px;
+	margin-right: 10px;
+	margin-bottom:10px;
+}
+
+
+.contentBottom{
+	color: #bbb;
+	font-size: 12px;
+}
+
+.contents{
+	display: flex;
+}
+
+.content_href{
+	margin-top: 6px;
+}
+
+
+
+
