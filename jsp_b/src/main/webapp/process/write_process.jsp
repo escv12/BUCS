@@ -11,7 +11,7 @@
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일");
 
 	String title = null;
-	String category = null;
+	int category = 0;
 	String content = null;
 	String hash_tag = null;
 	String userID = null;
@@ -23,7 +23,7 @@
 	PreparedStatement ptmt = null;
 	
 	title = (String) request.getParameter("title");
-	category = (String) request.getParameter("category");
+	category = Integer.parseInt(request.getParameter("category"));
 	content = (String) request.getParameter("content");
 	hash_tag = (String) request.getParameter("hash_tag");
 	userID = (String) session.getAttribute("userid");
@@ -49,7 +49,7 @@
 			return;
 		}
 		
-		sql = "INSERT INTO qna(qnanum,content,TITLE,HASHTAG,userid,writeday) VALUES(?,?,?,?,?,?);";
+		sql = "INSERT INTO qna(qnanum,content,TITLE,HASHTAG,userid,writeday,catenum) VALUES(?,?,?,?,?,?,?);";
 		ptmt = conn.prepareStatement(sql);
 		
 		ptmt.setInt(1, latestNum + 1);
@@ -58,6 +58,7 @@
 		ptmt.setString(4, hash_tag);
 		ptmt.setString(5, userID);
 		ptmt.setString(6, sf.format(nowTime));
+		ptmt.setInt(7, category);
 		
 		ptmt.executeUpdate();
 		

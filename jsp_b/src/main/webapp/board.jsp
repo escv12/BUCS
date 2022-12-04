@@ -1,3 +1,4 @@
+<%@page import="java.io.Console"%>
 <%@page import="javax.swing.text.Document"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,31 +23,50 @@
 	String title = null;
 	String writeday = null;
 	String writer = null;
+	String catenum = (String) request.getParameter("catenum");
+	if(catenum == null){
+		catenum = "0";
+	}
+	int num = Integer.parseInt(catenum);
 	int hitCount = 0;
 	
-	String sql = "SELECT * FROM qna ORDER BY qnanum DESC;";
+	String sql = null;
+	
+	if(num == 0){
+		sql = "SELECT * FROM qna ORDER BY qnanum DESC;"; 
+	}else if(num == 4){ //공지
+		sql = "SELECT * FROM qna where catenum=4 ORDER BY qnanum DESC;";
+	}else if(num == 1){ //자유
+		sql = "SELECT * FROM qna where catenum=1 ORDER BY qnanum DESC;";
+	}else if(num == 2){ //질문
+		sql = "SELECT * FROM qna where catenum=2 ORDER BY qnanum DESC;";
+	}else if(num == 3){ //건의
+		sql = "SELECT * FROM qna where catenum=3 ORDER BY qnanum DESC;";
+	}
+
 	ptmt = conn.prepareStatement(sql);
 	rs = ptmt.executeQuery();
 	
+
 %>
 
 <script type="text/javascript">
 	function clickContent(qnanum) {
-		var form = document.createElement("form");
-        form.setAttribute("charset", "UTF-8");
-        form.setAttribute("method", "Post");  //Post 방식
-        form.setAttribute("action", "./content.jsp"); //요청 보낼 주소
+		var form1 = document.createElement("form");
+        form1.setAttribute("charset", "UTF-8");
+        form1.setAttribute("method", "Post");  //Post 방식
+        form1.setAttribute("action", "./content.jsp"); //요청 보낼 주소
         
-        document.body.appendChild(form);
+        document.body.appendChild(form1);
        
 		var hiddenField = document.createElement("input");
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("name", "qnanum");
         hiddenField.setAttribute("id", "qnanum");
         hiddenField.setAttribute("value", qnanum);
-        form.appendChild(hiddenField);
+        form1.appendChild(hiddenField);
         
-        form.submit();
+        form1.submit();
 	}
 </script>
                 
@@ -55,10 +75,11 @@
     <div class="board_wrap">
         <div class="board">
             <div class="board_top">
-                <div><a href="#">전체</a></div>
-                <div><a href="#">공지</a></div>
-                <div><a href="#">자유</a></div>
-                <div><a href="#">질문</a></div>
+                <div><a href="./board.jsp?catenum=0">전체</a></div>
+                <div><a href="./board.jsp?catenum=4">공지</a></div>
+                <div><a href="./board.jsp?catenum=1">자유</a></div>
+                <div><a href="./board.jsp?catenum=2">질문</a></div>
+                <div><a href="./board.jsp?catenum=3">건의</a></div>
                 <% if(userid != null) {%>	
 		        <!-- 로그인전 화면 -->
 		          <div><a href="./write.jsp">글쓰기</a></div>
@@ -99,9 +120,11 @@
                             <td>얘는 공지 입니다</td>
                             <td>2022-10-12</td>
                             <td>1520</td>
+                            <td>admin</td>
                         </tr>
                         
-                        <% 	while(rs.next()){
+                        <% 
+                        while(rs.next()){
                     		qnanum = rs.getInt("qnanum");
                     		title = rs.getString("TITLE");
                     		writeday = rs.getString("writeday");
@@ -115,7 +138,6 @@
 	                            <td><%= writeday %></td>
 	                            <td><%= hitCount %></td>
 	                            <td><%= writer %></td>
-	                            
 	                        </tr>
                     	<%}%>
                     </tbody>

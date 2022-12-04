@@ -133,7 +133,7 @@
         <div class="addiv">
           이미지 들어갈 곳
           <a href="#">
-            <img src="./image/background.jpg">
+            <img">
           </a>
         </div>
 

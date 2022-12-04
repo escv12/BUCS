@@ -75,7 +75,7 @@
         <!-- 제목, 등록일 -->
         <div class="content_header">
             <p id="date">등록일  |  <span class="content_date"><%= writeday %></span></p>
-            <p id="title">회차/제목  |  <span class="content_title"><%= title %></span></p>
+            <p id="title">제목  |  <span class="content_title"><%= title %></span></p>
         </div>
         <!-- 내용 -->
         <textarea class="content" readonly="readonly">
