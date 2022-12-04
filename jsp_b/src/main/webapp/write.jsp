@@ -6,19 +6,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>write</title>
+    <title>게시글 작성</title>
     <link rel="stylesheet" href="./css/write.css">
 </head>
 <script type="text/javascript">
 	function goBack(){
 		window.history.back();
 	}
-
-
-
 </script>
-
-
 
 <body>
     <%@ include file="./header_footer/index_header.jsp" %>
@@ -39,7 +34,7 @@
                 <%} %>
             </select>
             <div class="write_text">내용</div>
-            <textarea maxlength='2000' name="content" class="write_content"></textarea>
+            <textarea maxlength='5000' name="content" class="write_content" placeholder="내용을 입력해주세요"></textarea>
             <div class="write_text">해쉬태그</div>
             <div class=" hash_tag">
             <input maxlength='50' name="hash_tag" id="hash_tag" placeholder="해쉬태그를 입력해주세요 콤마(,)로 구분">
@@ -51,5 +46,7 @@
         </form>
         
     </div> 
+    
+        <%@ include file="./header_footer/footer.jsp" %>
 </body>
 </html>

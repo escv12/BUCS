@@ -144,7 +144,7 @@
 		                            	<div class="categoryIcon"><%= cataName %></div>
 			                            <a class="content_href" href='javascript:clickContent(<%= qnanum %>);'><%= title %></a>
 			                        </div>
-			                        <div class=contentBottom><%= writer %> · <%= writeday %> · <img class='eye' src='./image/eye.png'> <%= hitCount %></div>                    	
+			                        <div class="contentBottom"><%= writer %> · <%= writeday %> · <img class='eye' src='./image/eye.png'> <%= hitCount %></div>                    	
 	                            </td>
 	                        </tr>
                     	<%}%>
@@ -159,5 +159,7 @@
             </div>
         </div>
     </div>
+    
+    <%@ include file="./header_footer/footer.jsp" %>
 </body>
 </html>

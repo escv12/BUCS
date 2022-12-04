@@ -58,7 +58,7 @@
 		ptmt.executeUpdate();
 		
 		PrintWriter script = response.getWriter();
-		script.println("<script>location.href = '../board.jsp'</script>"); // 이메일 인증
+		script.println("<script>location.href = '../index.jsp'</script>"); // 이메일 인증
 		script.close();
 		return;
 	}catch(Exception e){

@@ -13,6 +13,7 @@
 	int qnanum = Integer.parseInt(request.getParameter("qnanum"));
 	int hitCount = 0;
 	String title = null;
+	String writer = null;
 	String writeday = null;
 	String content = null;
 	String userid = null;
@@ -26,6 +27,7 @@
 	rs = ptmt.executeQuery();
 
     while(rs.next()){
+    	writer = rs.getString("userid");
 		title = rs.getString("TITLE");
 		content = rs.getString("content");
 		writeday = rs.getString("writeday");
@@ -75,14 +77,20 @@
         <div class="container">
         <!-- 제목, 등록일 -->
         <div class="content_header">
-            <p id="date">등록일  |  <span class="content_date"><%= writeday %></span></p>
-            <p id="title">제목  |  <span class="content_title"><%= title %></span></p>
+        	<p id="title"><%= title %></p>
+        	<p id="date"><%= writer %> · <%= writeday %> · <img class='eye' src='./image/eye.png'> <%= hitCount %></p>
         </div>
         <!-- 내용 -->
-		<pre class="content"><c:out value="${content}" /></pre>
+		<div class="content" style="white-space:pre;">
+		<c:set var="content" value="<%= content %>" />
+		<c:out value="${content}"/>
+		</div>
         <!-- 댓글 -->
         <table class="reply_wrap">
             <tbody id="content_reply">
+            	<tr class="reply" >
+                    <td  colspan="4" style="font-size:20px;">댓글</td>
+                </tr>
             	<% 
             	sql = "SELECT * FROM comment where postNo='" + qnanum + "' ORDER BY commentNo DESC;";
             	ptmt = conn.prepareStatement(sql);
@@ -103,17 +111,17 @@
                 <% } %>
                 
                 <tr class="alert">
-                <%if(session.getAttribute("userid") == null) {%>
-                    <td colspan="4">댓글을 작성하려면 <a class="login_link" href="./login.jsp">로그인</a> 하세요</td>
-                <%} else {%>
-                <td colspan="4">
-	                <form action="./process/writeComment_process.jsp" method="post">
-	                	<input type="hidden" name="postNum" value=<%= qnanum %>>
-				    	<textarea maxlength='200' name="comment" class="comment" placeholder="댓글을 입력해주세요"></textarea>
-				    	<button class="index" id="write">글쓰기</button>
-			        </form>
-		        </td>
-                <% } %>
+	                <td colspan="4">
+		                <%if(session.getAttribute("userid") == null) {%>
+		                    댓글을 작성하려면 <a class="login_link" href="./login.jsp">로그인</a> 하세요
+		                <%} else {%>
+			                <form action="./process/writeComment_process.jsp" method="post">
+			                	<input type="hidden" name="postNum" value=<%= qnanum %>>
+						    	<textarea maxlength='200' name="comment" class="comment" placeholder="댓글을 입력해주세요"></textarea>
+						    	<button class="commentSubmit" type="submit" style="cursor: pointer;">등록</button>
+					        </form>
+		                <% } %>
+	                </td>
                 </tr>
             </tbody>
         </table>
@@ -122,5 +130,7 @@
             <a class="index" href="./board.jsp">목록</a>
         </div>
     </div> 
+    
+    <%@ include file="./header_footer/footer.jsp" %>
 </body>
 </html>

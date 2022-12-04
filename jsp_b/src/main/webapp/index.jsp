@@ -127,7 +127,7 @@
                 <ul class="sub_category">
                   <p class="sub_category_title"><a href="#">관리자 기능</a></p>
                   <li class="sub_category_item"><a href="#">회원 관리</a></li>
-                  <li class="sub_category_item"><a href="#">강의 작성</a></li>
+                  <li class="sub_category_item"><a href="./postwrite.jsp">강의 작성</a></li>
                   <li class="sub_category_item"><a href="#">정보 수정</a></li>
                 </ul>
               </li>
@@ -138,15 +138,8 @@
       <!------------------------왼쪽 메뉴 끝-------------------------------->
       <!------------------------오른쪽 메뉴-------------------------------->
       <div class="content_right">
-
-      
-      
-      
         <div class="addiv">
-          이미지 들어갈 곳
-          <a href="#">
-            <img>
-          </a>
+          <img src="./image/background.jpg">
         </div>
         
         <% 
@@ -366,16 +359,12 @@
             </div>
             </div>
           </div>
-
-        <div class="addiv">
-          머 들어갈지 모르는 곳
-          <a href="#">
-            <img>
-          </a>
-        </div>
+          <%@ include file="./header_footer/footer.jsp" %>
       </div>
       <!------------------------오른쪽 메뉴 끝-------------------------------->
     </div>
   </div>
+  
+  
 </body>
 </html>
